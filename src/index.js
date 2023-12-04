@@ -6,14 +6,25 @@ import reportWebVitals from './reportWebVitals';
 
 // Pages
 import './index.css';
-import App from './app/public/pages/App';
+import Homepage from './app/public/pages/Homepage';
+import Navbar from './app/public/modules/navbar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
 		<Router>
 			<Routes>
-				<Route exact path="/" element={ <App /> }/>
+				<Route path="/" element={
+						<>
+							<Navbar />
+							<Homepage />
+						</> 
+					} />
+					<Route path="about" element={
+						<>
+							<Navbar />
+						</> 
+					} />
 			</Routes>
 		</Router>
 	</React.StrictMode>
