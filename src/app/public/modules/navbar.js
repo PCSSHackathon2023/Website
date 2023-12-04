@@ -3,7 +3,7 @@ import header from '../css/navbar.module.css'
 
 export default function Navbar() {
   return (
-    <header className={header.header}>
+	<header className={header.header}>
 		<h1 className={header.title}>PCSS Hackathon</h1>
 		<div className={header.button}>
 			<Link to="/" className={header.links}>
@@ -13,6 +13,6 @@ export default function Navbar() {
 				About
 			</Link>
 		</div>
-    </header>
-    )
+	</header>
+	)
 }
