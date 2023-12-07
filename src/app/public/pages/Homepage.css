@@ -8,3 +8,17 @@
 	font-size: calc(10px + 2vmin);
 	color: white;
 }
+
+.page {
+	opacity: 0;
+	animation-duration: 0.75s;
+	animation-name: fadeIn;
+	animation-delay: 2s;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity: 100%;}
+}

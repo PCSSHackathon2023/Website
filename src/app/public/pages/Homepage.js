@@ -1,11 +1,15 @@
 import './Homepage.css';
+import Title from '../modules/title';
 
 function Homepage() {
 	return (
 		<div className="Homepage">
 			<header className="header">
-				<p>PCSS Hackathon 2023</p>
-				<p>Under Construction</p>
+				<Title text="PCSS Hackathon 2023" />
+				<div className="page">
+					<button>test1</button>
+					<button>test2</button>
+				</div>
 			</header>
 		</div>
 	);

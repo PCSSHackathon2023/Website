@@ -1,0 +1,24 @@
+.holder {
+	display: flex;
+}
+
+.text {
+	opacity: 0;
+	font-size: 64px;
+	font-weight: bold;
+	animation-name: type;
+	animation-duration: 1000ms;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes type {
+	from { 
+		opacity: 0;
+		font-size: 96px;
+	}
+	to { 
+		opacity: 100%; 
+		font-size: 48px;
+	}
+}
