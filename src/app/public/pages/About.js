@@ -5,7 +5,7 @@ function About() {
 	return (
 		<div className="About">
 			<div className="body">
-				<Title text="PCSS Hackathon 2023" />
+				<Title text="ABOUT PAGE TESTING" />
 				<div className="page">
 					<button>test1</button>
 				</div>

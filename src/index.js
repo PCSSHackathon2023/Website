@@ -8,10 +8,10 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import Homepage from './app/public/pages/Homepage';
 import Signin from './app/public/pages/Signin';
+import About from './app/public/pages/About';   
 
 // Modules
 import Navbar from './app/public/modules/navbar';
-import About from './app/public/pages/About';   
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -27,7 +27,7 @@ root.render(
 					<Route path="about" element={
 						<>
 							<Navbar />
-                            <About />
+							<About />
 						</> 
 					} />
 					<Route path="signin" element={

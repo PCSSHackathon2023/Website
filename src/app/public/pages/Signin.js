@@ -2,8 +2,7 @@ import '../css/Signin.css';
 
 function Signin() {
 	return (
-		<div className="Homepage">
-			<header className="header">
+		<div className="Signin">
 				<div className="login">
 					<button className="signin-button">
 						<img src={process.env.PUBLIC_URL + "/assets/google.png"} className="signin-google-logo" alt="Google Logo" />
@@ -12,7 +11,6 @@ function Signin() {
 						</p>
 					</button>
 				</div>
-			</header>
 		</div>
 	);
 }
