@@ -11,6 +11,7 @@ import Signin from './app/public/pages/Signin';
 
 // Modules
 import Navbar from './app/public/modules/navbar';
+import About from './app/public/pages/About';   
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,6 +27,7 @@ root.render(
 					<Route path="about" element={
 						<>
 							<Navbar />
+                            <About />
 						</> 
 					} />
 					<Route path="signin" element={
