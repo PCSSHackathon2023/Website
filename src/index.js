@@ -7,6 +7,9 @@ import reportWebVitals from './reportWebVitals';
 // Pages
 import './index.css';
 import Homepage from './app/public/pages/Homepage';
+import Signin from './app/public/pages/Signin';
+
+// Modules
 import Navbar from './app/public/modules/navbar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -23,6 +26,12 @@ root.render(
 					<Route path="about" element={
 						<>
 							<Navbar />
+						</> 
+					} />
+					<Route path="signin" element={
+						<>
+							<Navbar />
+							<Signin />
 						</> 
 					} />
 			</Routes>
