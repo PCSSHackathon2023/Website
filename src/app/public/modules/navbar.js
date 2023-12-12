@@ -12,6 +12,9 @@ export default function Navbar() {
 			<Link to="/about" className={header.links}>
 				About
 			</Link>
+			<Link to="/signin" className={header.links + ' ' + header.signin}>
+				Sign In
+			</Link>
 		</div>
 	</header>
 	)

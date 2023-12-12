@@ -10,10 +10,7 @@
 	background-color: var(--navbar-background-color);
 	display:grid;
 	grid-column-gap: 5px;
-	grid-template-columns: 1fr repeat(1, auto) 1fr;
-	justify-content: center;
-	justify-items: center;
-	padding: 0rem 2rem;
+	grid-template-columns: 1fr repeat(1, auto);
 	position: fixed;
 	width: 100%;
 	z-index: 10;
@@ -22,6 +19,7 @@
 .title {
 	color: white;
 	display:flex;
+	padding-left: 2rem;
 	justify-content: left;
 	margin-right: auto;
 	padding-top: 0px;
@@ -29,13 +27,17 @@
 	text-align: left;
 }
 
+.button {
+	margin-right: 0.5rem;
+}
+
 .links {
 	border-radius: 10px;
 	color: var(--links-color);
-	font-size: 24px;
+	font-size: 18px;
 	font-weight: 600;
 	margin: 6px;
-	padding: 6px 18px 6px 18px;
+	padding: 12px 18px 12px 18px;
 	text-decoration: none;
 }
 
@@ -46,4 +48,9 @@
 
 .links:hover, .links:active {
 	animation: 0.1s ease-in-out 0s 1 normal forwards running button-hover;
+}
+
+.signin {
+	background-color: rgb(73, 71, 238);
+	animation-name: none;
 }
