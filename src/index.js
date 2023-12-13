@@ -1,48 +1,21 @@
 // Modules
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router } from "react-router-dom";
+import AppRoutes from "./AppRoutes";
+import reportWebVitals from "./reportWebVitals";
 
-// Pages
-import './index.css';
-import Homepage from './app/public/pages/Homepage';
-import Signin from './app/public/pages/Signin';
-import About from './app/public/pages/About';   
-import UnknownPage from './app/public/pages/UnknownPage'; 
+import "./index.css";
 
-// Modules
-import Navbar from './app/public/modules/navbar';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-	<React.StrictMode>
-		<Router>
-			<Routes>
-				<Route path="*" element={
-					<UnknownPage />
-				} />
-				<Route path="/" element={
-						<>
-							<Navbar />
-							<Homepage />
-						</> 
-					} />
-					<Route path="about" element={
-						<>
-							<Navbar />
-							<About />
-						</> 
-					} />
-					<Route path="signin" element={
-						<>
-							<Navbar />
-							<Signin />
-						</> 
-					} />
-			</Routes>
-		</Router>
-	</React.StrictMode>
+    <React.StrictMode>
+        <Router>
+            <AppRoutes />
+        </Router>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
