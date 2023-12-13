@@ -1,11 +1,10 @@
 import "./About.css";
-import Title from "../modules/title";
 
 function About() {
     return (
         <div className="About">
             <div className="body">
-                <Title text="ABOUT PAGE TESTING" />
+                <h1 className="title">About KnowMore Hacks</h1>
                 <div className="page">
                     <p className="text">
                         Students in Grades 6–8 in Ontario's elementary schools

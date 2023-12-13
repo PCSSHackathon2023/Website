@@ -1,31 +1,46 @@
 .body {
-	background-color: #282c34;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .page {
-	opacity: 0;
-	animation-duration: 0.75s;
-	animation-name: fadeIn;
-	animation-delay: 2s;
-	animation-timing-function: ease-in-out;
-	animation-fill-mode: forwards;
+    opacity: 0;
+    animation-duration: 0.75s;
+    animation-name: fadeIn;
+    animation-delay: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    align-items: center;
+    justify-content: center;
 }
 
-.text{
+.text {
     text-align: center;
     font-size: 1.5em;
     margin: 1em 10em 1em 10em;
     font-size: 1em;
 }
 
+.title {
+    opacity: 0;
+    animation-duration: 0.75s;
+    animation-name: fadeIn;
+    animation-delay: 0.25s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
 @keyframes fadeIn {
-	from {opacity: 0;}
-	to {opacity: 100%;}
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
 }
