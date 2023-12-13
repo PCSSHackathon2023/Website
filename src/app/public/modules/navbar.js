@@ -4,7 +4,7 @@ import header from "../css/navbar.module.css";
 export default function Navbar() {
     return (
         <header className={header.header}>
-            <h1 className={header.title}>PCSS Hackathon</h1>
+            <h1 className={header.title}>KnowMore Hacks</h1>
             <div className={header.button}>
                 <Link to="/" className={header.links}>
                     Home
