@@ -1,17 +1,28 @@
-import './About.css';
-import Title from '../modules/title';
+import "./About.css";
+import Title from "../modules/title";
 
 function About() {
-	return (
-		<div className="About">
-			<div className="body">
-				<Title text="ABOUT PAGE TESTING" />
-				<div className="page">
-					<button>test1</button>
-				</div>
-			</div>
-		</div>
-	);
+    return (
+        <div className="About">
+            <div className="body">
+                <Title text="ABOUT PAGE TESTING" />
+                <div className="page">
+                    <p className="text">
+                        Students in Grades 6–8 in Ontario's elementary schools
+                        are invited to participate in the Hackathon, which will
+                        provide them with an enjoyable opportunity to test their
+                        knowledge and compete with one another. It will be
+                        housed in Port Credit Secondary School and run by the
+                        Peel District School Board. The event will take over one
+                        day in May of 2024. Students will have a fantastic
+                        opportunity to learn more about Peel Schools,
+                        particularly Port Credit's SciTech program, through this
+                        challenge.
+                    </p>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default About;

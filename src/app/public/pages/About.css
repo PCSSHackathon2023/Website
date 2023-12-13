@@ -18,6 +18,13 @@
 	animation-fill-mode: forwards;
 }
 
+.text{
+    text-align: center;
+    font-size: 1.5em;
+    margin: 1em 10em 1em 10em;
+    font-size: 1em;
+}
+
 @keyframes fadeIn {
 	from {opacity: 0;}
 	to {opacity: 100%;}
