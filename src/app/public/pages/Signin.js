@@ -1,16 +1,18 @@
-import './Signin.module.css';
+import styles from './Signin.module.css';
 
 function Signin() {
 	return (
-		<div className="Signin">
-				<div className="login">
-					<button className="signin-button">
-						<img src={process.env.PUBLIC_URL + "/assets/google.png"} className="signin-google-logo" alt="Google Logo" />
-						<p className="Sign-in-text">
-						Sign in with Google
+		<div className={styles.Signin}>
+			<div className="body">
+				<div className={styles.login}>
+					<button className={styles.signin_button}>
+						<img src={process.env.PUBLIC_URL + "/assets/google.png"} className={styles.signin_google_logo} alt="Google Logo" />
+						<p className={styles.sign_in_text}>
+						Sign in with PDSB
 						</p>
 					</button>
 				</div>
+			</div>
 		</div>
 	);
 }
