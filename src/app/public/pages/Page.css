@@ -13,9 +13,11 @@
 	opacity: 0;
 	animation-duration: 0.75s;
 	animation-name: fadeIn;
-	animation-delay: 2s;
+	animation-delay: 0.5s;
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: forwards;
+	align-items: center;
+	justify-content: center;
 }
 
 @keyframes fadeIn {

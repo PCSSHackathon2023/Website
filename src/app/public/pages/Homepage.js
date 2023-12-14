@@ -1,4 +1,4 @@
-import "./Homepage.css";
+import "./Page.css";
 import Title from "../modules/partyTitle";
 
 function Homepage() {

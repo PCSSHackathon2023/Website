@@ -1,25 +1,3 @@
-.body {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.page {
-    opacity: 0;
-    animation-duration: 0.75s;
-    animation-name: fadeIn;
-    animation-delay: 0.5s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-    align-items: center;
-    justify-content: center;
-}
-
 .text {
     text-align: center;
     font-size: 1.5em;
@@ -34,13 +12,4 @@
     animation-delay: 0.25s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 100%;
-    }
 }
