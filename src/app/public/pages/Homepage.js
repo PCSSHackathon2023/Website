@@ -8,8 +8,7 @@ function Homepage() {
             <div className="body">
                 <Title text="KnowMore Hacks 2023" />
                 <div className="page">
-                    <button>test1</button>
-                    <button>test2</button>
+                    <p className={styles.text}>Welcome to the annual Hackathon hosted by Port Credit Secondary School!</p>
                 </div>
             </div>
         </div>

@@ -13,6 +13,7 @@
     animation-delay: 0.25s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+    margin-top: 30vh;
 }
 
 @keyframes fadeIn {
