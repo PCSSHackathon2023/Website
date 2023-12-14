@@ -1,13 +1,13 @@
-import "./About.css";
 import "./Page.css";
+import styles from "./About.module.css";
 
 function About() {
     return (
         <div className="About">
             <div className="body">
-                <h1 className="title">About KnowMore Hacks</h1>
+                <h1 className={styles.title}>About KnowMore Hacks</h1>
                 <div className="page">
-                    <p className="text">
+                    <p className={styles.text}>
                         Students in Grades 6–8 in Ontario's elementary schools
                         are invited to participate in the Hackathon, which will
                         provide them with an enjoyable opportunity to test their

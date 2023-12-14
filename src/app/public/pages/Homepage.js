@@ -1,9 +1,10 @@
 import "./Page.css";
+import styles from "./Homepage.module.css";
 import Title from "../modules/partyTitle";
 
 function Homepage() {
     return (
-        <div className="Homepage">
+        <div className={styles.Homepage}>
             <div className="body">
                 <Title text="KnowMore Hacks 2023" />
                 <div className="page">
