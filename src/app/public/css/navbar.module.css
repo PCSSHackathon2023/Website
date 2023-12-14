@@ -1,18 +1,18 @@
 /* Variables */
 .header {
-	--navbar-background-color: rgb(2, 9, 34);
+	--navbar-background-color: rgb(41, 19, 89);
 	--links-hover-color: rgba(0, 0, 0, 0.233);
 	--links-color: rgb(209, 209, 209);
 }
 
 .header {
+    background: linear-gradient(to right, rgba(16,16,86,.35) , rgba(193,140,10,.35));
 	align-items: center;
-	background-color: var(--navbar-background-color);
 	display:grid;
 	grid-column-gap: 5px;
 	grid-template-columns: 1fr repeat(1, auto);
 	position: fixed;
-    height: 15vh;
+    height: 13vh;
 	width: 100%;
 	z-index: 10;
 }

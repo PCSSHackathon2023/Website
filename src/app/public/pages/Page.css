@@ -1,26 +1,33 @@
 .body {
-	background-color: #1a0202;
-	min-height: 200vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
-    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-image: url("../../../../public/assets/stars_background.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 400vh;
+    width: 100%;
+    overflow-y: auto;
 }
 
 .page {
-	opacity: 0;
-	animation-duration: 0.75s;
-	animation-name: fadeIn;
-	animation-delay: 0.5s;
-	animation-timing-function: ease-in-out;
-	animation-fill-mode: forwards;
-	align-items: center;
-	justify-content: center;
+    opacity: 0;
+    animation-duration: 0.75s;
+    animation-name: fadeIn;
+    animation-delay: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes fadeIn {
-	from {opacity: 0;}
-	to {opacity: 100%;}
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
 }
