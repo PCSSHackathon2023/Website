@@ -12,8 +12,16 @@
 	grid-column-gap: 5px;
 	grid-template-columns: 1fr repeat(1, auto);
 	position: fixed;
+    height: 15vh;
 	width: 100%;
 	z-index: 10;
+}
+
+.logo {
+    display: flex;
+    max-height: 12vh;
+    width: 12vh;
+    padding-left: 2vh;
 }
 
 .title {
