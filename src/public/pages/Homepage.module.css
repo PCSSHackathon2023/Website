@@ -3,7 +3,6 @@
     text-align: center;
     font-size: 1.5em;
     margin: 0em 10em 0em 10em;
-
 }
 
 .title {
@@ -17,6 +16,19 @@
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     margin-top: 50vh;
+}
+.overlapLayer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50vh; /* Height of the translucent area */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent);
+    z-index: 1;
+}
+.overlapLayer {
+    position: relative;
 }
 
 @keyframes fadeIn {

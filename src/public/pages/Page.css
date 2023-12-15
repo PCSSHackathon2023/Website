@@ -1,15 +1,14 @@
 .body {
+    background-color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-image: url("../../../../public/assets/stars_background.webp");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    min-height: 400vh;
+    min-height: 100vh;
     width: 100%;
-    overflow-y: auto;
 }
 
 .page {

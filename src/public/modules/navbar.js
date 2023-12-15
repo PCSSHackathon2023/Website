@@ -4,7 +4,7 @@ import header from "../css/navbar.module.css";
 export default function Navbar() {
     return (
         <header className={header.header}>
-            <img src={process.env.PUBLIC_URL + "/assets/KnowMore_Logo.png"} className={header.logo} alt="KnowMore Hackathon logo"/>
+            <img src={require("../../assets/KnowMore_Logo.png")} className={header.logo} alt="KnowMore Hackathon logo"/>
             <div className={header.button}>
                 <Link to="/" className={header.links}>
                     Home

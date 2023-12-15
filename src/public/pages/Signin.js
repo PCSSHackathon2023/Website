@@ -6,7 +6,7 @@ function Signin() {
 			<div className="body">
 				<div className={styles.login}>
 					<button className={styles.signin_button}>
-						<img src={process.env.PUBLIC_URL + "/assets/google.png"} className={styles.signin_google_logo} alt="Google Logo" />
+						<img src={require("../../assets/google.png")} className={styles.signin_google_logo} alt="Google Logo" />
 						<p className={styles.sign_in_text}>
 						Sign in with PDSB
 						</p>
