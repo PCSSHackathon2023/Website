@@ -32,7 +32,7 @@ function Homepage() {
                     </ParallaxLayer>
                     <ParallaxLayer
                         offset={1.1}
-                        speed={0}
+                        speed={-0.5}
                         style={{ zIndex: -1 }}
                     >
                         <h2 className={styles.fixedTitle}>About</h2>
