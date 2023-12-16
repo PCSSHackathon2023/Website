@@ -2,8 +2,7 @@ import PocketBase from 'pocketbase'
 
 export const pb = new PocketBase('https://pb.mohil.ca/');
 
-if(localStorage.key(localStorage.getItem("pocketbase_auth").length === 1)) {
-	pb.authStore.save(JSON.parse(localStorage.getItem("pocketbase_auth"))["token"], null)
+if(localStorage.length > 0 && localStorage.key(localStorage.getItem("pocketbase_auth").length === 1)) {
 	pb.collection("users").authRefresh()
 }
 

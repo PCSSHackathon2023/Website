@@ -1,6 +1,7 @@
 import styles from './Signin.module.css';
 import {useState} from 'react';
 import { googleAuth, pb } from '../../auth';
+import { resolvePath } from 'react-router';
 
 function Signin() {
 	const [image, setImage] = useState('');
@@ -24,6 +25,7 @@ function Signin() {
 						Sign in with PDSB
 						</p>
 					</button>
+					<button onClick={() => {pb.authStore.clear(); window.location.reload()}}>sign out</button>
 				</div>
 			</div>
 		</div>
