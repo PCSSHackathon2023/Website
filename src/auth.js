@@ -1,5 +1,4 @@
 import PocketBase from 'pocketbase'
-
 export const pb = new PocketBase('https://pb.mohil.ca/');
 
 if(localStorage.length > 0 && localStorage.key(localStorage.getItem("pocketbase_auth").length === 1)) {
