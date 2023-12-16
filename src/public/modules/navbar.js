@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import header from "../css/navbar.module.css";
-import { pb } from "../../auth";
+import { getUserImage, pb } from "../../auth";
 
 export default function Navbar() {
 	const [image, setImage] = useState();
+
+	useEffect(() => {
+		setImage(getUserImage());
+	}, [])
 
 	pb.authStore.onChange((token, model) => {
 		try {
@@ -39,6 +43,7 @@ export default function Navbar() {
 					Sign In
 				</Link>
 				}
+			<button onClick={() => {pb.authStore.clear(); window.location.reload()}}>sign out</button>
 			</div>
 		</header>
 		);

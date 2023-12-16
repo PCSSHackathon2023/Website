@@ -1,8 +1,13 @@
 import PocketBase from 'pocketbase'
 export const pb = new PocketBase('https://pb.mohil.ca/');
 
-if(localStorage.length > 0 && localStorage.key(localStorage.getItem("pocketbase_auth").length === 1)) {
-	pb.collection("users").authRefresh()
+pb.collection("users").authRefresh()
+
+export function getUserImage() {
+	if(pb.authStore.isValid) {
+		return pb.files.getUrl(pb.authStore.model, pb.authStore.model.avatar, {'thumb': '96x96'})
+	}
+	return "";
 }
 
 export async function downloadImageFromUrl(url) {
