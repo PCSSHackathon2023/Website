@@ -2,6 +2,7 @@ import "./Page.css";
 import styles from "./Homepage.module.css";
 import Title from "../modules/partyTitle";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import Signin from "../modules/signin";
 
 function Homepage() {
     return (
@@ -61,6 +62,10 @@ function Homepage() {
                     ></ParallaxLayer>
                     <ParallaxLayer offset={2} speed={0.5} factor={4}>
                         <h2 className={styles.title}>Sponsors</h2>
+                    </ParallaxLayer>
+
+                    <ParallaxLayer offset={2} speed={0.5} factor={4}>
+                        <Signin />
                     </ParallaxLayer>
                 </Parallax>
             </div>
