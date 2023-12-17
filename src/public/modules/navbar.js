@@ -40,7 +40,7 @@ export default function Navbar() {
 					to="/signin"
 					className={header.links + " " + header.signin}
 				>
-					Sign In
+					Sign Up
 				</Link>
 				}
 			<button onClick={() => {pb.authStore.clear(); window.location.reload()}}>sign out</button>
