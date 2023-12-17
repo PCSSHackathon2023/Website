@@ -2,7 +2,14 @@ import PocketBase from 'pocketbase'
 export const pb = new PocketBase('https://pb.mohil.ca/');
 
 if(localStorage.length > 0 && localStorage.getItem("pocketbase_auth") !== null) {
-	pb.collection("users").authRefresh()
+	pb.collection("users").authRefresh().catch(() => {
+		signOut();
+	})
+}
+
+export function signOut() {
+	pb.authStore.clear();
+	window.location.reload()
 }
 
 export function getUserImage() {

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import {useEffect, useState} from 'react';
 import header from "../css/navbar.module.css";
-import { getUserImage, pb } from "../../auth";
+import { getUserImage, pb, signOut } from "../../auth";
 
 export default function Navbar() {
 	const [image, setImage] = useState();
@@ -43,7 +43,7 @@ export default function Navbar() {
 					Sign Up
 				</Link>
 				}
-			<button onClick={() => {pb.authStore.clear(); window.location.reload()}}>sign out</button>
+			<button onClick={signOut}>sign out</button>
 			</div>
 		</header>
 		);
