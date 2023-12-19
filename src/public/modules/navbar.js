@@ -25,8 +25,11 @@ export default function Navbar() {
 				<Link to="/" className={header.links}>
 					Home
 				</Link>
-				<Link to="/about" className={header.links}>
+				<Link to="/" className={header.links}>
 					About
+				</Link>
+				<Link to="/" className={header.links}>
+					Sponsors
 				</Link>
 				{ pb.authStore.isValid ?
 				<Link
