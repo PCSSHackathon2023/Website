@@ -3,6 +3,10 @@
 	--navbar-background-color: rgb(41, 19, 89);
 	--links-hover-color: rgba(0, 0, 0, 0.233);
 	--links-color: rgb(209, 209, 209);
+	--bg:  #242526;
+  --border: 1px solid #474a4d;
+  --border-radius: 8px;
+  --speed: 500ms; 
 }
 
 .header {
@@ -80,4 +84,24 @@
 	width: 3rem;
 	height: 3rem;
 	border-radius: 100%;
+}
+
+.dropdown {
+  position: absolute;
+  top: 110px;
+	right: 20px;
+  width: 300px;
+  background-color: var(--bg);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  overflow: hidden;
+  transition: height var(--speed) ease;
+	opacity: 0;
+	display: none;
+}
+
+.show {
+	opacity: 1 !important;
+	display: block !important;
 }

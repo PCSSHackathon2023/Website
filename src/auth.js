@@ -19,6 +19,13 @@ export function getUserImage() {
 	return "";
 }
 
+export function getUser() {
+	if(pb.authStore.isValid) {
+		return pb.authStore.model
+	}
+	return "";
+}
+
 export async function downloadImageFromUrl(url) {
   const xmlHTTP = new XMLHttpRequest();
   xmlHTTP.open('GET', url, true);
