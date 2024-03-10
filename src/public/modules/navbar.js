@@ -42,7 +42,7 @@ export default function Navbar() {
 
 	return (
 		<header className={header.header}>
-			<img src={require("../../assets/KnowMore_Logo.png")} className={header.logo} alt="KnowMore Hackathon logo"/>
+			<img src={require("../../assets/logo.png")} className={header.logo} alt="KnowMore Hackathon logo"/>
 			<div className={header.button}>
 				<Link to="/#home" className={header.links}>
 					Home
