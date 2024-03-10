@@ -3,12 +3,32 @@ import styles from "./Homepage.module.css";
 import Title from "../modules/partyTitle";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Signin from "../modules/signin";
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 
 function Homepage() {
+    const scrollRef = useRef();
+    const location = useLocation();
+    function scrollToComponent() {
+        if (window.location.hash === '#home') {
+            scrollRef.current.scrollTo(0)
+        }
+        else if (window.location.hash === '#about') {
+            scrollRef.current.scrollTo(0.9)
+        }
+        else if (window.location.hash === '#sponsors') {
+            scrollRef.current.scrollTo(1.5)
+        }
+        else if (window.location.hash === '#login') {
+            scrollRef.current.scrollTo(3)
+        }
+    }
+    useEffect( () => {scrollToComponent()}, [location.hash] )
+
     return (
         <div>
             <div className="body">
-                <Parallax pages={3.5}>
+                <Parallax ref={scrollRef} pages={3.5}>
                     <ParallaxLayer
                         offset={0}
                         speed={1}
@@ -25,7 +45,7 @@ function Homepage() {
                         factor={2}
                         style={{ zIndex: 1 }}
                     >
-                        <Title text="KnowMore Hacks 2023" />
+                        <div className={styles.title}><Title text="KnowMore Hacks 2023" /></div>
                         <p className={styles.text}>
                             Welcome to the first annual Hackathon hosted by Port
                             Credit Secondary School!
@@ -38,7 +58,7 @@ function Homepage() {
                     >
                         <h2 className={styles.fixedTitle}>About</h2>
                         <p className={styles.fixedText}>
-                            Students in Grades 6–8 in Ontario's elementary
+                            Students in Grades 6-8 in Ontario's elementary
                             schools are invited to participate in the Hackathon,
                             which will provide them with an enjoyable
                             opportunity to test their knowledge and compete with
@@ -60,11 +80,11 @@ function Homepage() {
                             backgroundSize: "cover",
                         }}
                     ></ParallaxLayer>
-                    <ParallaxLayer offset={2} speed={0.5} factor={4}>
+                    <ParallaxLayer offset={1.7} speed={0.5} factor={4}>
                         <h2 className={styles.title}>Sponsors</h2>
                     </ParallaxLayer>
 
-                    <ParallaxLayer offset={2} speed={0.5} factor={4}>
+                    <ParallaxLayer offset={2.9} speed={0.9} factor={4}>
                         <Signin />
                     </ParallaxLayer>
                 </Parallax>

@@ -1,4 +1,4 @@
-import { Link, useAsyncError } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {useEffect, useState, useRef} from 'react';
 import header from "../css/navbar.module.css";
 import { DropdownButton, DropdownItem } from './dropdown';
@@ -44,13 +44,13 @@ export default function Navbar() {
 		<header className={header.header}>
 			<img src={require("../../assets/KnowMore_Logo.png")} className={header.logo} alt="KnowMore Hackathon logo"/>
 			<div className={header.button}>
-				<Link to="/" className={header.links}>
+				<Link to="/#home" className={header.links}>
 					Home
 				</Link>
-				<Link to="/" className={header.links}>
+				<Link to="/#about" className={header.links}>
 					About
 				</Link>
-				<Link to="/" className={header.links}>
+				<Link to="/#sponsors" className={header.links}>
 					Sponsors
 				</Link>
 				{ pb.authStore.isValid ?
@@ -59,7 +59,7 @@ export default function Navbar() {
 				</a>
 				:
 				<Link
-					to="/signin"
+					to="/#login"
 					className={header.links + " " + header.signin}
 				>
 					Sign Up
