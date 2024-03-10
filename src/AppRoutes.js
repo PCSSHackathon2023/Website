@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 // pages
 import Navbar from "./public/modules/navbar";
 import Homepage from "./public/pages/Homepage";
-import About from "./public/pages/About";
 import UnknownPage from "./public/pages/UnknownPage";
 
 const AppRoutes = () => (
@@ -16,15 +15,6 @@ const AppRoutes = () => (
                 <>
                     <Navbar />
                     <Homepage />
-                </>
-            }
-        />
-        <Route
-            path="about"
-            element={
-                <>
-                    <Navbar />
-                    <About />
                 </>
             }
         />
