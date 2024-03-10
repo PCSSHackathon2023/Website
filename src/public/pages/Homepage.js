@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 function Homepage() {
     const scrollRef = useRef();
     const location = useLocation();
+
     function scrollToComponent() {
         if (window.location.hash === '#home') {
             scrollRef.current.scrollTo(0)
@@ -22,6 +23,7 @@ function Homepage() {
         else if (window.location.hash === '#login') {
             scrollRef.current.scrollTo(3)
         }
+        window.location.hash = "#";
     }
     useEffect( () => {scrollToComponent()}, [location.hash] )
 
