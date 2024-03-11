@@ -1,14 +1,14 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 // pages
 import Navbar from "./public/modules/navbar";
 import Homepage from "./public/pages/Homepage";
-import UnknownPage from "./public/pages/UnknownPage";
+
+import { pb } from './auth' 
 
 const AppRoutes = () => (
     <Routes>
-        <Route path="*" element={<UnknownPage />} />
         <Route
             path="/"
             element={
@@ -18,6 +18,20 @@ const AppRoutes = () => (
                 </>
             }
         />
+        {pb.authStore.isValid ?
+            <Route path="user">
+                <Route 
+                    path="dashboard"
+                    element={
+                        <>TESTING</>
+                    }
+                />
+                <Route path="*" element={<Navigate to="/" replace={true} />} />
+            </Route>
+            :
+            <></>
+        }
+        <Route path="*" element={<Navigate to="/" replace={true} />} />
     </Routes>
 );
 
