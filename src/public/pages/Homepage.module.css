@@ -30,6 +30,10 @@
 	font-weight: 700;
 }
 
+.mainTitle {
+    font-family: 'Work Sans', sans-serif !important;
+}
+
 .fixedTitle {
     position: absolute;
     left: 50%;

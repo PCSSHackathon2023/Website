@@ -52,7 +52,7 @@ function Homepage() {
                             backgroundSize: "cover",
                         }}
                     >
-                        <div className={styles.title}><Title text="KnowMore Hacks 2023" /></div>
+                        <div className={styles.title + " " + styles.mainTitle}><Title text="KnowMore Hacks 2023" /></div>
                         <p className={styles.text}>
                             Welcome to the first annual Hackathon hosted by Port
                             Credit Secondary School!
