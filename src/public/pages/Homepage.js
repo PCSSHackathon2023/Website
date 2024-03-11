@@ -11,7 +11,7 @@ import { pb } from "../../auth";
 function Homepage() {
     const scrollRef = useRef();
     const location = useLocation();
-	const [signInStatus, setSignInStatus] = useState(false);
+	const [signInStatus, setSignInStatus] = useState(pb.authStore.isValid);
 
     function scrollToComponent() {
         if (window.location.hash === '#home') {
@@ -86,11 +86,13 @@ function Homepage() {
                             backgroundImage: `url(${require("../../assets/stars-nature_background.png")})`,
                             backgroundSize: "cover",
                         }}
-                    ></ParallaxLayer>
-                    <ParallaxLayer offset={1.7} speed={0.5} factor={3}>
-                        <h2 className={styles.title}>Sponsors</h2>
+                    >
+                        <h2 style={{paddingTop: "350px"}} className={styles.title}>Sponsors</h2>
+                        <div className={styles.sponsorSpots}>
+                            
+                        </div>
                     </ParallaxLayer>
-                    <ParallaxLayer offset={2} speed={0.9} factor={1}>
+                    <div className={styles.signinButton}>
                     {signInStatus ? 
                         <div className={signinstyles.login}>
                             <Link to="/user/dashboard" className={signinstyles.signin_button}>
@@ -102,7 +104,7 @@ function Homepage() {
                     : 
                         <Signin />
                     }
-                    </ParallaxLayer>
+                    </div>
                 </Parallax>
             </div>
         </div>

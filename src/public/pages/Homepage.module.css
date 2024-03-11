@@ -26,6 +26,8 @@
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     margin-top: 30vh;
+    font-family: 'Josefin Sans', sans-serif;
+	font-weight: 700;
 }
 
 .fixedTitle {
@@ -42,6 +44,8 @@
     animation-delay: 0.25s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+    font-family: 'Josefin Sans', sans-serif;
+	font-weight: 700;
 }
 
 .overlapLayer {
@@ -61,4 +65,18 @@
     to {
         opacity: 100%;
     }
+}
+
+.signinButton {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+.sponsorSpots {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 300px;
 }
