@@ -4,6 +4,9 @@ import header from "../css/navbar.module.css";
 import { DropdownButton, DropdownItem } from './dropdown';
 import { getUserImage, getUser, pb, signOut } from "../../auth";
 
+import dashboardIcon from '../../assets/dashboard.svg'
+import adminIcon from '../../assets/admin.svg'
+import logoutIcon from '../../assets/logout.svg'
 
 export default function Navbar() {
 	const [image, setImage] = useState();
@@ -69,9 +72,32 @@ export default function Navbar() {
 				<div ref={dropdownRef} className={header.dropdown}>
 					<DropdownItem leftIcon={<img className={header.profile_picture} src={image} alt="Profile" />}>{username}</DropdownItem>
 					<hr></hr>
-					<DropdownButton href="/user/dashboard" leftIcon={"-"}>User Dashboard</DropdownButton>
-					{ user.role === "admin" ? <DropdownButton href="/admin/dashboard" leftIcon={"-"}>Admin Dashboard</DropdownButton> : <></> }
-					<DropdownButton onClick={signOut} leftIcon={"-"}>Sign Out</DropdownButton>
+
+					<DropdownButton 
+					href="/user/dashboard" 
+					leftIcon={
+						<img src={dashboardIcon} alt="Dashboard Icon" style={{filter: "invert(85%)"}}/>
+					}>
+						User Dashboard
+					</DropdownButton>
+
+					{ user.role === "admin" ? 
+					<DropdownButton 
+					href="/admin/dashboard" 
+					leftIcon={
+						<img src={adminIcon} alt="Dashboard Icon" style={{filter: "invert(85%)"}}/>
+					}>
+						Admin Dashboard
+					</DropdownButton> 
+					: <></> }
+
+					<DropdownButton 
+					onClick={signOut} 
+					leftIcon={
+						<img src={logoutIcon} alt="Dashboard Icon" style={{filter: "invert(85%)"}}/>
+					}>
+						Sign Out
+					</DropdownButton>
 				</div>
 			</div>
 		</header>
