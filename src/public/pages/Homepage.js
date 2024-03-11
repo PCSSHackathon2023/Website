@@ -71,10 +71,9 @@ function Homepage() {
                             opportunity to test their knowledge and compete with
                             one another. It will be housed in Port Credit
                             Secondary School and run by the Peel District School
-                            Board. The event will take over one day in May of
-                            2024. Students will have a fantastic opportunity to
-                            learn more about Peel Schools, particularly Port
-                            Credit's SciTech program, through this challenge.
+                            Board. The event will take place on May 25th 2024. 
+                            Students will have a fantastic opportunity to
+                            experience a hackathon, and learn more about the Sci-Tech program.
                         </p>
                     </ParallaxLayer>
                     <ParallaxLayer
