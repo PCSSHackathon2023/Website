@@ -11,9 +11,9 @@ export function DropdownButton(props) {
 
 export function DropdownItem(props) {
 	return (
-		<a className={dropdown.menu_item}>
+		<div className={dropdown.menu_item}>
 			<span className={dropdown.icon_button}>{props.leftIcon}</span>
 			{props.children}
-		</a>
+		</div>
 	);
 }
