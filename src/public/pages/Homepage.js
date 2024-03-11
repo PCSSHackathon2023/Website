@@ -5,7 +5,7 @@ import Title from "../modules/partyTitle";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Signin from "../modules/signin";
 import { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { pb } from "../../auth";
 
 function Homepage() {
@@ -24,7 +24,7 @@ function Homepage() {
             scrollRef.current.scrollTo(1.5)
         }
         else if (window.location.hash === '#login') {
-            scrollRef.current.scrollTo(3)
+            scrollRef.current.scrollTo(2)
         }
         window.location.hash = "#";
     }
@@ -41,7 +41,7 @@ function Homepage() {
     return (
         <div>
             <div className="body">
-                <Parallax ref={scrollRef} pages={3.5}>
+                <Parallax ref={scrollRef} pages={3}>
                     <ParallaxLayer
                         offset={0}
                         speed={1}
@@ -51,12 +51,6 @@ function Homepage() {
                             backgroundImage: `url(${require("../../assets/stars_background.png")})`,
                             backgroundSize: "cover",
                         }}
-                    ></ParallaxLayer>
-                    <ParallaxLayer
-                        offset={0}
-                        speed={0.5}
-                        factor={2}
-                        style={{ zIndex: 1 }}
                     >
                         <div className={styles.title}><Title text="KnowMore Hacks 2023" /></div>
                         <p className={styles.text}>
@@ -65,7 +59,7 @@ function Homepage() {
                         </p>
                     </ParallaxLayer>
                     <ParallaxLayer
-                        offset={1.1}
+                        offset={1.17}
                         speed={-0.5}
                         style={{ zIndex: -1 }}
                     >
@@ -84,34 +78,31 @@ function Homepage() {
                         </p>
                     </ParallaxLayer>
                     <ParallaxLayer
-                        offset={1.5}
+                        offset={1.6}
                         speed={1}
-                        factor={4}
+                        factor={3}
                         className={styles.overlapLayer}
                         style={{
                             backgroundImage: `url(${require("../../assets/stars-nature_background.png")})`,
                             backgroundSize: "cover",
                         }}
                     ></ParallaxLayer>
-                    <ParallaxLayer offset={1.7} speed={0.5} factor={4}>
+                    <ParallaxLayer offset={1.7} speed={0.5} factor={3}>
                         <h2 className={styles.title}>Sponsors</h2>
                     </ParallaxLayer>
-                    
+                    <ParallaxLayer offset={2} speed={0.9} factor={1}>
                     {signInStatus ? 
-                        <ParallaxLayer offset={2.9} speed={0.9} factor={4}>
-                            <div className={signinstyles.login}>
-                                <a href="/user/dashboard" className={signinstyles.signin_button}>
-                                    <p className={signinstyles.get_started_text}>
-                                    Get Started
-                                    </p>
-                                </a>
-                            </div>
-                        </ParallaxLayer>
+                        <div className={signinstyles.login}>
+                            <Link to="/user/dashboard" className={signinstyles.signin_button}>
+                                <p className={signinstyles.get_started_text}>
+                                Get Started
+                                </p>
+                            </Link>
+                        </div>
                     : 
-                        <ParallaxLayer offset={2.9} speed={0.9} factor={4}>
-                            <Signin />
-                        </ParallaxLayer>
+                        <Signin />
                     }
+                    </ParallaxLayer>
                 </Parallax>
             </div>
         </div>
