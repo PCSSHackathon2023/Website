@@ -4,7 +4,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 // pages
 import Navbar from "./public/modules/navbar";
 import Homepage from "./public/pages/Homepage";
-
+import FAQ from "./public/pages/FAQ";
+import Dashboard from './auth/pages/dashboard'
 import { pb } from './auth' 
 
 const AppRoutes = () => (
@@ -18,12 +19,21 @@ const AppRoutes = () => (
                 </>
             }
         />
+        <Route
+            path="faq"
+            element={
+                <>
+                    <Navbar />
+                    <FAQ />
+                </>
+            }
+        />
         {pb.authStore.isValid ?
             <Route path="user">
                 <Route 
                     path="dashboard"
                     element={
-                        <>TESTING</>
+                        <Dashboard />
                     }
                 />
                 <Route path="*" element={<Navigate to="/" replace={true} />} />

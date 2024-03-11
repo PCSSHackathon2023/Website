@@ -1,0 +1,55 @@
+.accordion {
+    width: 75%;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    padding: 150px 0;
+}
+
+.body {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+	min-height: 100vh;
+    background-image: url('../../assets/stars_background.png');
+}
+
+.item {
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    margin-bottom: 15px;
+    padding: 10px 20px;
+}
+
+.switch {
+    font-size: 18px;
+	font-weight: 600;
+}
+
+.title {
+    color:aliceblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.content{
+    color:azure;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.2s cubic-bezier(0, 1, 0, 1);
+    text-align: left;
+}
+
+.content.show{
+    max-height: 1920px;
+    transition:  all 0.5s cubic-bezier(1, 0, 1, 0);
+}

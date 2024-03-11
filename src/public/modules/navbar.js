@@ -47,15 +47,11 @@ export default function Navbar() {
 		<header className={header.header}>
 			<img src={require("../../assets/logo.png")} className={header.logo} alt="KnowMore Hackathon logo"/>
 			<div className={header.button}>
-				<Link to="/#home" className={header.links}>
-					Home
-				</Link>
-				<Link to="/#about" className={header.links}>
-					About
-				</Link>
-				<Link to="/#sponsors" className={header.links}>
-					Sponsors
-				</Link>
+				<Link to="/#home" className={header.links}>Home</Link>
+				<Link to="/#about" className={header.links}>About</Link>
+				<Link to="/#sponsors" className={header.links}>Sponsors</Link>
+				<Link to="/faq" className={header.links}>FAQ</Link>
+				
 				{ pb.authStore.isValid ?
 				<button className={header.links + " " + header.profile_links}>
 					<img className={header.profile_picture} src={image} alt="Profile" />
