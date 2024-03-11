@@ -54,9 +54,9 @@ export default function Navbar() {
 					Sponsors
 				</Link>
 				{ pb.authStore.isValid ?
-				<a className={header.links + " " + header.profile_links}>
+				<button className={header.links + " " + header.profile_links}>
 					<img className={header.profile_picture} src={image} alt="Profile" />
-				</a>
+				</button>
 				:
 				<Link
 					to="/#login"
