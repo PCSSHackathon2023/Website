@@ -56,6 +56,7 @@
 	padding: 12px 18px 12px 18px;
 	text-decoration: none;
 	animation: 0.1s ease-in-out 0s 1 normal forwards running button-unhover;
+	font-weight: 500;
 }
 
 @keyframes button-hover {
