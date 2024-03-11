@@ -1,12 +1,14 @@
 .signin_button {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  border: none;
-  width: 220px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  width: 320px;
+  height: 150px;
   justify-content: center;
   text-decoration: none;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 8px;
+  font-size: 24px;
   font-weight: bold;
   padding: 5px 15px;
   margin-top: 20px;
@@ -19,14 +21,15 @@
 }
 
 .signin_button:hover {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(0, 0, 0, 0.55);
 }
 
 .signin_google_logo {
-  height: 4vmin;
+  height: 6vmin;
   pointer-events: none;
   display: inline;
   margin-right: 10px;
+  padding-left: 10px;
 }
 
 .login {
@@ -39,7 +42,7 @@
 }
 
 .get_started_text {
-  font-size: 24px;
+  font-size: 36px;
   font-family: 'Work Sans', sans-serif;
 	font-weight: 500;
 }
