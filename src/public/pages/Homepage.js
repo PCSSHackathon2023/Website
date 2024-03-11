@@ -94,11 +94,11 @@ function Homepage() {
                     <div className={styles.signinButton}>
                     {signInStatus ? 
                         <div className={signinstyles.login}>
-                            <Link to="/user/dashboard" className={signinstyles.signin_button}>
+                            <a to="/user/dashboard" className={signinstyles.signin_button}>
                                 <p className={signinstyles.get_started_text}>
                                 Get Started
                                 </p>
-                            </Link>
+                            </a>
                         </div>
                     : 
                         <Signin />
