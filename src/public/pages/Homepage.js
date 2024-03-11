@@ -1,14 +1,17 @@
 import "./Page.css";
 import styles from "./Homepage.module.css";
+import signinstyles from '../css/signin.module.css'
 import Title from "../modules/partyTitle";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Signin from "../modules/signin";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { pb } from "../../auth";
 
 function Homepage() {
     const scrollRef = useRef();
     const location = useLocation();
+	const [signInStatus, setSignInStatus] = useState(false);
 
     function scrollToComponent() {
         if (window.location.hash === '#home') {
@@ -26,6 +29,14 @@ function Homepage() {
         window.location.hash = "#";
     }
     useEffect( () => {scrollToComponent()}, [location.hash] )
+
+    pb.authStore.onChange((token, model) => {
+		try {
+            setSignInStatus(pb.authStore.isValid);
+		} catch (err) {
+			console.log(err);
+		}
+	});
 
     return (
         <div>
@@ -85,10 +96,22 @@ function Homepage() {
                     <ParallaxLayer offset={1.7} speed={0.5} factor={4}>
                         <h2 className={styles.title}>Sponsors</h2>
                     </ParallaxLayer>
-
-                    <ParallaxLayer offset={2.9} speed={0.9} factor={4}>
-                        <Signin />
-                    </ParallaxLayer>
+                    
+                    {signInStatus ? 
+                        <ParallaxLayer offset={2.9} speed={0.9} factor={4}>
+                            <div className={signinstyles.login}>
+                                <a href="/user/dashboard" className={signinstyles.signin_button}>
+                                    <p className={signinstyles.get_started_text}>
+                                    Get Started
+                                    </p>
+                                </a>
+                            </div>
+                        </ParallaxLayer>
+                    : 
+                        <ParallaxLayer offset={2.9} speed={0.9} factor={4}>
+                            <Signin />
+                        </ParallaxLayer>
+                    }
                 </Parallax>
             </div>
         </div>
