@@ -7,7 +7,7 @@ function Signin() {
 			<button className={styles.signin_button} onClick={googleAuth}>
 				<img src={require("../../assets/google.png")} className={styles.signin_google_logo} alt="Google Logo" />
 				<p className={styles.sign_in_text}>
-				Sign in with PDSB
+				Sign in with School Account
 				</p>
 			</button>
 		</div>
