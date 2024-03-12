@@ -5,7 +5,7 @@ import Title from "../modules/partyTitle";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Signin from "../modules/signin";
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { pb } from "../../auth";
 
 function Homepage() {

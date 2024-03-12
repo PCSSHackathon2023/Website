@@ -1,16 +1,16 @@
-import { useState } from "react";
-import { pb } from "../../auth";
+// import { useState } from "react";
+// import { pb } from "../../auth";
 
 function Dashboard() {
-	const [signInStatus, setSignInStatus] = useState(false);
+	// const [signInStatus, setSignInStatus] = useState(false);
 
-	pb.authStore.onChange((token, model) => {
-		try {
-			setSignInStatus(pb.authStore.isValid);
-		} catch (err) {
-			console.log(err);
-		}
-	});
+	// pb.authStore.onChange((token, model) => {
+	// 	try {
+	// 		setSignInStatus(pb.authStore.isValid);
+	// 	} catch (err) {
+	// 		console.log(err);
+	// 	}
+	// });
 
 	return (
 		<div>
