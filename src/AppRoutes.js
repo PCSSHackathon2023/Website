@@ -6,7 +6,12 @@ import Navbar from "./public/modules/navbar";
 import Homepage from "./public/pages/Homepage";
 import FAQ from "./public/pages/FAQ";
 import Dashboard from './auth/pages/dashboard'
-import { pb } from './auth' 
+import { checkAuth, pb } from './auth' 
+
+function PrivateRoute({ children }) {
+    checkAuth()
+    return children;
+}
 
 const AppRoutes = () => (
     <Routes>
@@ -33,7 +38,9 @@ const AppRoutes = () => (
                 <Route 
                     path="dashboard"
                     element={
-                        <Dashboard />
+                        <PrivateRoute>
+                            <Dashboard />
+                        </PrivateRoute>
                     }
                 />
                 <Route path="*" element={<Navigate to="/" replace={true} />} />
