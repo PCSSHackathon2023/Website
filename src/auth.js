@@ -1,10 +1,20 @@
 import PocketBase from 'pocketbase'
 export const pb = new PocketBase('https://pb.mohil.ca/');
 
-if(localStorage.length > 0 && localStorage.getItem("pocketbase_auth") !== null) {
-	pb.collection("users").authRefresh().catch(() => {
-		signOut();
-	})
+export async function checkAuth() {
+	if(localStorage.length > 0 && localStorage.getItem("pocketbase_auth") !== null) {
+		await pb.collection("users").authRefresh().then((res) => {
+			if(!pb.authStore.isValid) {
+				signOut();
+			}
+		})
+		.catch((err) => {
+			if(err.status === 401) {
+				signOut();
+			}
+			return;
+		})
+	}
 }
 
 export function signOut() {
@@ -14,7 +24,12 @@ export function signOut() {
 
 export function getUserImage() {
 	if(pb.authStore.isValid) {
-		return pb.files.getUrl(pb.authStore.model, pb.authStore.model.avatar, {'thumb': '96x96'})
+		let url = localStorage.getItem("profileURL");
+		if(url === null || url === undefined) {
+			url = pb.files.getUrl(pb.authStore.model, pb.authStore.model.avatar, {'thumb': '96x96'});
+			localStorage.setItem("profileURL", url);
+		}
+		return url;
 	}
 	return "";
 }
