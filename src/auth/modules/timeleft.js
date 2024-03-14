@@ -5,10 +5,10 @@ export default function TimeLeft() {
 
 	const timeRef = useRef(null);
 	const [timeLeft, setTimeLeft] = useState(null);
+	const zeroPad = (num, places) => String(num).padStart(places, '0')
 
 	useEffect(() => {
-		var countDownDate = new Date("May 25, 2024 12:00:00").getTime();
-		// Get today's date and time
+		var countDownDate = new Date("May 25, 2024 21:00:00").getTime();
 		var now = new Date().getTime();
 		
 		// Find the distance between now and the count down date
@@ -20,14 +20,13 @@ export default function TimeLeft() {
 		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 		
-		setTimeLeft("Contest starts in " + days + " days");
+		if(days <= 0) {
+			setTimeLeft("Time Left: " + zeroPad(hours, 2) + ":" + zeroPad(minutes, 2) + ":" + zeroPad(seconds, 2))
+		} else {
+			setTimeLeft("Contest starts in " + days + " days");
+		}
 	}, [])
 		
-	// If the count down is over, write some text 
-	// if (distance < 0) {
-	// 	document.getElementById("demo").innerHTML = "EXPIRED";
-	// }
-
 	return (
 		<div className={styles.card}>
 			<div ref={timeRef} className={styles.time}>
