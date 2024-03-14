@@ -1,0 +1,31 @@
+.card {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	grid-area: 2 / 1 / 2 / 1;
+	height: 64px;
+	width: 100%;
+	min-width: 450px;
+	background-color: rgb(20, 26, 36);
+	border-radius: 16px;
+	border-color: rgba(255, 255, 255, 0.5);
+	border-style: solid;
+	border-width: 2px;
+	color: white;
+	padding: 12px;
+	text-align: center;
+	justify-content: center;
+	align-items: middle;
+}
+
+.time {
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 500; 
+	font-size: 32px;
+}
+
+@media only screen and (min-width: 1000px) {
+	.card {
+		grid-area: 1 / 2 / 1 / 2;
+	}
+}

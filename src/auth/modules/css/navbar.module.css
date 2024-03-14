@@ -1,0 +1,111 @@
+/* Variables */
+.header {
+	--navbar-background-color: rgb(41, 19, 89);
+	--links-hover-color: rgba(0, 0, 0, 0.233);
+	--links-color: rgb(255, 255, 255);
+	--bg:  #242526;
+  --border: 1px solid #474a4d;
+  --border-radius: 8px;
+  --speed: 500ms; 
+}
+
+.header {
+  backdrop-filter: blur(8px);
+	background: rgba(0, 0, 0, 0.4);
+	align-items: center;
+	display:grid;
+	grid-column-gap: 5px;
+	grid-template-columns: 1fr repeat(1, auto);
+	position: fixed;
+	height: 13vh;
+	width: 100%;
+	z-index: 10;
+}
+
+.logo {
+    display: flex;
+    max-height: 12vh;
+    width: 12vh;
+    padding-left: 2vh;
+}
+
+.title {
+	color: white;
+	display:flex;
+	padding-left: 2rem;
+	justify-content: left;
+	margin-right: auto;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	text-align: left;
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	margin-right: 0.5rem;
+}
+
+.links {
+	border-radius: 10px;
+	color: var(--links-color);
+	background-color: transparent;
+	border: none;
+	font-size: 20px;
+	margin: 6px;
+	padding: 12px 18px 12px 18px;
+	text-decoration: none;
+	animation: 0.1s ease-in-out 0s 1 normal forwards running button-unhover;
+	font-weight: 500;
+	text-align: center;
+}
+
+@keyframes button-hover {
+	to  {background-color: var(--links-hover-color);}
+}
+
+@keyframes button-unhover {
+	from {background-color: var(--links-hover-color)}  
+}
+
+.links:hover, .links:active {
+	animation: 0.1s ease-in-out 0s 1 normal forwards running button-hover;
+}
+
+.profile_links {
+	padding: 12px;
+	margin-right: 1.5rem;
+	margin-left: 0.75rem;
+}
+
+.signin {
+	background-color: rgb(71, 102, 238);
+	margin-right: 1.5rem;
+}
+
+.profile_picture {
+	display: flex;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 100%;
+}
+
+.dropdown {
+  position: absolute;
+  top: 110px;
+	right: 20px;
+  width: 300px;
+  background-color: var(--bg);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  overflow: hidden;
+  transition: height var(--speed) ease;
+	opacity: 0;
+	display: none;
+}
+
+.show {
+	opacity: 1 !important;
+	display: block !important;
+}
