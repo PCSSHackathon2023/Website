@@ -7,6 +7,7 @@ import Homepage from "./public/pages/Homepage";
 import FAQ from "./public/pages/FAQ";
 import Dashboard from './auth/pages/dashboard'
 import { checkAuth, pb } from './auth' 
+import DashboardNavbar from "./auth/modules/navbar";
 
 function PrivateRoute({ children }) {
     checkAuth()
@@ -39,6 +40,7 @@ const AppRoutes = () => (
                     path="dashboard"
                     element={
                         <PrivateRoute>
+                            <DashboardNavbar />
                             <Dashboard />
                         </PrivateRoute>
                     }
