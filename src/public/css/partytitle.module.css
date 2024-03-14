@@ -4,12 +4,15 @@
 }
 
 .text {
+    --red: rgb(244, 77, 77);
+    --green: rgb(50, 255, 128);
+    --blue: rgb(51, 51, 240);
     opacity: 0;
     text-align: center;
     font-size: 64px;
     font-weight: bold;
     animation-name: party-effect;
-    animation-duration: 1000ms;
+    animation-duration: 700ms;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 }
@@ -17,28 +20,28 @@
 @keyframes party-effect {
     0% {
         transform: translate(0);
-        color: rgb(50, 255, 128);
+        color: var(--green);
         opacity: 0;
     }
     20% {
         transform: translate(-2px, 2px);
-        color: rgb(50, 255, 128);
+        color: var(--green);
     }
     40% {
         transform: translate(2px, -2px);
-        color: rgb(51, 51, 240);
+        color: var(--blue);
     }
     60% {
         transform: translate(-2px, 2px);
-        color: rgb(244, 77, 77);
+        color: var(--red);
     }
     80% {
         transform: translate(2px, -2px);
-        color: rgb(51, 51, 240);
+        color: var(--blue);
     }
     90% {
         transform: translate(2px, 2px);
-        color: rgb(50, 255, 128);
+        color: var(--green);
         opacity: 1;
     }
     100% {
