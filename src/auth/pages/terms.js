@@ -30,9 +30,12 @@ function TermsOfService() {
 							This includes refraining from any form of bullying, harassment, or discrimination.
 						</li>
 						<li>
+							Follow the Peel District School Board's Code of Conduct (<a href="https://www.peelschools.org/code-of-conduct">https://www.peelschools.org/code-of-conduct</a>)
+						</li>
+						<li>
 							Reporting Inappropriate Behavior: If I witness or become aware of any inappropriate behavior by another participant, 
 							I will report it to the hackathon organizers as soon as possible. 
-							The organizers have the right to remove any participant who violates these terms of service, 
+							Managers/Organizers reserve the right to take any action as they see fit and to remove any participant who violates these terms of service, 
 							and the ability to contact their school over any inappropriate behaviour.
 						</li>
 					</ol>
