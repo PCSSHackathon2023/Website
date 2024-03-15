@@ -6,6 +6,15 @@ import acceptIcon from '../../assets/check.svg'
 import declineIcon from '../../assets/exit.svg'
 import optionsIcon from '../../assets/options.svg'
 
+async function acceptUser(id) {
+	await pb.collection('teams').update(pb.authStore.model.team, {'requested_members-': id});
+}
+
+async function declineUser(id) {
+	await pb.collection('users').update(id, {'team': null});
+	await pb.collection('teams').update(pb.authStore.model.team, {'requested_members-': id, 'member_count-': 1});
+}
+
 export default function TeamMembers(props) {
 	function TeamMembersCard() {
 		var dom =	props.members.map((user) => {
@@ -19,10 +28,10 @@ export default function TeamMembers(props) {
 				<></>}
 				{user.role === "requested" ? 
 				<div style={{marginRight: "0", marginLeft: "auto"}}>
-					<button title="Accept Request" className={styles.requestButton}>
+					<button onClick={() => acceptUser(user.id)} title="Accept Request" className={styles.requestButton}>
 						<img src={acceptIcon} alt="Leader Icon" style={{filter: "invert(85%)", translate: "0 2px 0"}}/>
 					</button>
-					<button title="Decline Request" className={styles.requestButton}>
+					<button onClick={() => declineUser(user.id)} title="Decline Request" className={styles.requestButton}>
 						<img src={declineIcon} alt="Leader Icon" style={{filter: "invert(85%)", translate: "0 2px 0"}}/>
 					</button>
 				</div>
