@@ -129,9 +129,9 @@ export default function TeamCard() {
 		<div className={styles.card}>
 			<div className={styles.title}>
 			Team: {teamName}
-				{/* {isLeader ? <></> : */}
+				{isLeader ? <></> :
 				<button onClick={selfLeave} className={styles.leaveButton}>Leave Group</button>
-				{/* } */}
+				}
 				<div className={styles.memberCount}>
 					{members.length}/5
 				</div>
