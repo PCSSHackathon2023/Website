@@ -3,6 +3,14 @@ import styles from './css/team.module.css'
 import TeamMembers from './teammembers';
 import { pb } from '../../auth';
 
+async function selfLeave() {
+	await pb.collection('teams').update(pb.authStore.model.team, {'member_count-': 1}).then(async () => {
+		await pb.collection('users').update(pb.authStore.model.id, {'team': null}).then(() => {
+			window.location.reload()
+		})
+	})
+}
+
 export default function TeamCard() {
 	const [members, setMembers] = useState([]);
 	const [isLeader, setIsLeader] = useState(false);
@@ -32,11 +40,18 @@ export default function TeamCard() {
 	{pb.authStore.model.team === "" || pb.authStore.model.team === null ?
 		<div className={styles.card}>
 			<div className={styles.noTeam}>It looks like you don't have a team</div>
+			<div className={styles.buttonHolder}>
+				<button className={styles.createTeamButton + " " + styles.teamButton}>Create Team</button>
+				<button className={styles.joinTeamButton + " " + styles.teamButton}>Join Team</button>
+			</div>
 		</div>
 	:
 		<div className={styles.card}>
 			<div className={styles.title}>
 			Team: {teamName}
+				{isLeader ? <></> :
+				<button onClick={selfLeave} className={styles.leaveButton}>Leave Group</button>
+				}
 				<div className={styles.memberCount}>
 					{members.length}/5
 				</div>

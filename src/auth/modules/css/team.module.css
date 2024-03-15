@@ -20,7 +20,7 @@
 	border-style: solid;
 	border-width: 0 0 2px 0;
 	color: white;
-	padding: 12px;
+	padding: 6px 12px 12px 12px;
 	font-size: 20px;
 }
 
@@ -85,4 +85,126 @@
 
 .requestButton:hover, .requestButton:active {
 	animation: 0.2s ease-in-out 0s 1 normal forwards running button-hover;
+}
+
+.optionsHolder {
+	margin-right: 0;
+	margin-left: auto;
+}
+
+.hide {
+  display: none;
+}
+
+.dropdownContent {
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0 0 8px 8px rgba(255, 255, 255, 0.075);
+  z-index: 1;
+	border-radius: 16px;
+	display: none;
+	padding: 8px;
+}
+
+.firstOption {
+	margin-bottom: 8px;
+}
+
+.secondOption {
+	padding: 0;
+}
+
+.dropdownContent button {
+	color: black;
+	text-align: left;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+	border-radius: 16px;
+	border: solid;
+	border-width: 2px;
+	border-color: rgb(0, 0, 0, 0.2);
+	width: 100%;
+	font-family: "Work Sans", sans-serif;
+	font-size: 16px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.dropdownContent img {
+	margin-right: 12px;
+}
+
+.dropdownContent button:hover {
+	background-color: #a7a7a7;
+}
+
+.show {
+	display: block !important;
+}
+
+.leaveButton {
+	width: 128px;
+	height: 32px;
+	background-color: rgb(177, 55, 55);
+	color: white;
+	font-size: 16px;
+	font-family: 'Work Sans', sans-serif;
+	border: none;
+	margin-left: 24px;
+	border-radius: 8px;
+	animation: 0.2s ease-in-out 0s 1 normal forwards running button2-unhover;
+}
+
+@keyframes button2-hover {
+	to  {opacity: 0.8}
+}
+
+@keyframes button2-unhover {
+	from {opacity: 0.8}  
+}
+
+.leaveButton:hover, .leaveButton:active {
+	animation: 0.2s ease-in-out 0s 1 normal forwards running button2-hover;
+}
+
+.noTeam {
+	padding-top: 16px;
+	font-size: 24px;
+	text-align: center;
+}
+
+.buttonHolder {
+	width: 100%;
+	margin-top: 5%;
+	display: flex;
+	justify-content: center;
+}
+
+.teamButton {
+	width: 160px;
+	height: 50px;
+	border: none;
+	border-radius: 8px;
+	color: white;
+	font-size: 16px;
+	font-family: 'Work Sans', sans-serif;
+	cursor: pointer;
+	animation: 0.2s ease-in-out 0s 1 normal forwards running button2-unhover;
+}
+
+.createTeamButton {
+	background-color: rgb(184, 54, 54);
+	margin-right: 24px;
+}
+
+.joinTeamButton {
+	background-color: rgb(99, 156, 255);
+	margin-left: 24px;
+}
+
+.teamButton:hover, .teamButton:active {
+	animation: 0.2s ease-in-out 0s 1 normal forwards running button2-hover;
 }
