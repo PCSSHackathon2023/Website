@@ -24,16 +24,16 @@ export default function TeamMembers(props) {
 	}
 
 	async function acceptUser(id) {
-		await pb.collection('teams').update(pb.authStore.model.team, {'requested_members-': id}).then(() => {
-			window.location.reload()
+		await pb.collection('users').update(id, {'requested_team': null, 'team': pb.authStore.model.team}).then(async () => {
+			await pb.collection('teams').update(pb.authStore.model.team, {'member_count+': 1}).then(() => {
+				window.location.reload()
+			});
 		});
 	}
 	
 	async function declineUser(id) {
-		await pb.collection('users').update(id, {'team': null}).then(async () => {
-			await pb.collection('teams').update(pb.authStore.model.team, {'requested_members-': id, 'member_count-': 1}).then(() => {
-				window.location.reload()
-			});
+		await pb.collection('users').update(id, {'requested_team': null, 'team': null}).then(() => {
+			window.location.reload()
 		});
 	}
 	
@@ -50,14 +50,15 @@ export default function TeamMembers(props) {
 			});
 		});
 	}
-
+	
 	const handleOutsideClick = (event) => {
 		if (!event.target.matches("." + styles.requestButton) && !event.target.matches("." + styles.firstOption) && !event.target.matches("." + styles.secondOption)) {
 			hideDropdowns()
 		}
-  };
+	};
 
 	useEffect(() => {
+
 		document.addEventListener('mousedown', handleOutsideClick);
 		return () => {
 			document.removeEventListener('mousedown', handleOutsideClick);

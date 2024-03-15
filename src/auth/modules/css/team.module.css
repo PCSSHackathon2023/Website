@@ -176,6 +176,11 @@
 	text-align: center;
 }
 
+.noTeamCard {
+	position: relative;
+	height: 100%;
+}
+
 .buttonHolder {
 	width: 100%;
 	margin-top: 5%;
@@ -193,11 +198,13 @@
 	font-family: 'Work Sans', sans-serif;
 	cursor: pointer;
 	animation: 0.2s ease-in-out 0s 1 normal forwards running button2-unhover;
+	transition: opacity 0.5s;
 }
 
 .createTeamButton {
 	background-color: rgb(184, 54, 54);
 	margin-right: 24px;
+	z-index: 10;
 }
 
 .joinTeamButton {
@@ -207,4 +214,79 @@
 
 .teamButton:hover, .teamButton:active {
 	animation: 0.2s ease-in-out 0s 1 normal forwards running button2-hover;
+}
+
+.teamButton:disabled {
+	cursor: default;
+	opacity: 0.5 !important;
+}
+
+.teamInputHolder {
+	width: 100%;
+	height: 0;
+	display: grid;
+	grid-template-columns: 10% 90%;
+	align-items: center;
+	animation: 0.5s ease-out 0s 1 normal forwards running input-active-holder;
+}
+
+.teamInputHolder input {
+	width: calc(100% - 16px);
+	height: 0px;
+	font-size: 32px;
+	font-family: 'Work Sans', sans-serif;
+	background-color: transparent;
+	color: white;
+	border: solid;
+	border-width: 0 0 2px 0;
+	border-color: rgba(255, 255, 255, 0.75);
+	margin: 0;
+	padding: 0;
+	animation: 0.5s ease-out 0s 1 normal forwards running input-active;
+}
+
+.teamInputHolder button {
+	width: 48px;
+	height: 48px;
+	background-color: rgba(255, 255, 255, 0.2);
+	border: none;
+	border-radius: 100%;
+	cursor: pointer;
+	translate: 0 12px;
+	animation: 0.5s ease-out 0s 1 normal forwards running input-active-button;
+}
+
+.errorMessage {
+	color: rgb(202, 76, 76);
+	padding-left: 16px;
+	margin-top: 8px;
+	grid-column: 2 / 2;
+}
+
+@keyframes input-active {
+	from  {
+		clip-path: circle(0%);
+		margin: 0;
+		padding: 0;
+	}
+	to  {
+		clip-path: circle(100%); 
+		height: 48px;
+		padding: 16px 0 16px 16px;
+		margin: 16px 0 0 0;
+	}
+}
+
+@keyframes input-active-button {
+	from  {
+		clip-path: circle(0%);
+	}
+	to  {
+		clip-path: circle(100%); 
+		height: 48px;
+	}
+}
+
+@keyframes input-active-holder {
+	to  {height: 96px}
 }
