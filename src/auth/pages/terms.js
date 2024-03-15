@@ -18,7 +18,7 @@ function TermsOfService() {
 	
 	return (
 		<>
-		{pb.authStore.model.accept_terms && setModal ? <></> :
+		{pb.authStore.model.accept_terms && modal ? <></> :
 			<div className={styles.main}>
 				<div className={styles.content}>
 					<div className={styles.title}>
