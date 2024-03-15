@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { pb } from "../../auth";
 
 import styles from './terms.module.css'
@@ -8,17 +8,17 @@ function TermsOfService() {
 	const [modal, setModal] = useState(true);
 
 	async function accept() {
-		const data = {
-			"accept_terms": true,
-		};
-	
-		await pb.collection('users').update(pb.authStore.model.id, data);
-		setModal(false);
+		await pb.collection('users').update(pb.authStore.model.id, {"accept_terms": true,});
+		setModal(true);
 	}
+
+	useEffect(() => {
+		setModal(pb.authStore.model.accept_terms);
+	}, [])
 	
 	return (
 		<>
-		{pb.authStore.model.accept_terms && modal ? <></> :
+		{(pb.authStore.model.accept_terms || modal) ? <></> :
 			<div className={styles.main}>
 				<div className={styles.content}>
 					<div className={styles.title}>
@@ -36,7 +36,9 @@ function TermsOfService() {
 							and the ability to contact their school over any inappropriate behaviour.
 						</li>
 					</ol>
-					<button onClick={accept} className={styles.accept}>Agree</button>
+					<div className={styles.acceptHolder}>
+						<button onClick={accept} className={styles.accept}>Agree</button>
+					</div>
 				</div>
 			</div>
 		}

@@ -24,7 +24,7 @@
 	background-color: rgb(13, 17, 23);
 	color: white;
 	border-radius: 16px;
-  margin: auto;
+  margin: 0 auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
@@ -40,7 +40,6 @@
 .accept {
 	width: 256px;
 	height: 64px;
-	margin: auto;
 	color: white;
 	background-color: rgb(59, 128, 59);
 	border: none;
@@ -48,4 +47,24 @@
 	font-family: 'Work Sans', sans-serif;
 	font-size: 24px;
 	cursor: pointer;
+	animation: 0.2s ease-in-out 0s 1 normal forwards running button-unhover;
+}
+
+@keyframes button-hover {
+	to  {background-color: rgba(59, 128, 59, 0.7);}
+}
+
+@keyframes button-unhover {
+	from {background-color: rgba(59, 128, 59, 0.7)}  
+}
+
+.accept:hover, .accept:active {
+	animation: 0.2s ease-in-out 0s 1 normal forwards running button-hover;
+}
+
+.acceptHolder {
+	width: 100%;
+	display: flex;
+	padding-top: 16px;
+	justify-content: center;
 }
