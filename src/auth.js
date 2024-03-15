@@ -27,7 +27,9 @@ export function getUserImage() {
 		let url = localStorage.getItem("profileURL");
 		if(url === null || url === undefined) {
 			url = pb.files.getUrl(pb.authStore.model, pb.authStore.model.avatar, {'thumb': '96x96'});
-			localStorage.setItem("profileURL", url);
+			if(url != "") {
+				localStorage.setItem("profileURL", url);
+			}
 		}
 		return url;
 	}
