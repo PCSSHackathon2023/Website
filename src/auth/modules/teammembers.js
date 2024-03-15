@@ -37,7 +37,7 @@ export default function TeamMembers(props) {
 				</div>
 				: 
 				<></>}
-				{user.role !== "leader" && user.role !== "requested" ? 
+				{user.role !== "leader" && user.role !== "requested" && props.isLeader === true ? 
 				<button title="Member Options" className={styles.requestButton} style={{marginRight: "8px", marginLeft: "auto"}}>
 					<img src={optionsIcon} alt="Leader Icon" style={{filter: "invert(85%)", translate: "0 2px 0"}}/>
 				</button>

@@ -5,11 +5,15 @@ import { pb } from '../../auth';
 
 export default function TeamCard() {
 	const [members, setMembers] = useState([]);
+	const [isLeader, setIsLeader] = useState(false);
 	const [teamName, setTeamName] = useState([]);
 
 	useEffect(() => {
 		pb.collection('teams').getOne(pb.authStore.model.team, {fields: 'team_name,team_owner,requested_members'}).then((res) => {
 			setTeamName(res.team_name)
+			if(res.team_owner === pb.authStore.model.id) {
+				setIsLeader(true);
+			}
 			pb.collection('users').getList(1, 6, {fields: 'id,name,avatar,collectionId'}).then((members) => {
 				setMembers(members.items.map((user) => {
 					if(user.id === res.team_owner) {
@@ -37,7 +41,7 @@ export default function TeamCard() {
 					{members.length}/5
 				</div>
 			</div>
-			<TeamMembers members={members} />
+			<TeamMembers members={members} isLeader={isLeader} />
 		</div> 
 	}
 	</>
