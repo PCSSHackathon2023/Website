@@ -5,15 +5,15 @@ import { pb } from '../../auth';
 import declineIcon from '../../assets/exit.svg'
 
 async function selfLeave() {
-	await pb.collection('users').update(pb.authStore.model.id, {'team': null}).then(async () => {
-		await pb.collection('teams').update(pb.authStore.model.team, {'member_count-': 1}).then(() => {
+	await pb.collection('teams').update(pb.authStore.model.team, {'member_count-': 1}).then(async () => {
+		await pb.collection('users').update(pb.authStore.model.id, {'team': null}).then(() => {
 			window.location.reload()
 		})
 	}).catch(() => {})
 }
 
 function generateCode() {
-	console.log(Math.random().toString(36).slice(2));
+	return Math.random().toString(36).slice(4);
 }
 
 export default function TeamCard() {
@@ -22,6 +22,7 @@ export default function TeamCard() {
 	const [teamName, setTeamName] = useState([]);
 	const [noTeamDecision, setNoTeamDecision] = useState('');
 	const [noTeamError, setNoTeamError] = useState('');
+	const [updatePage, setUpdatePage] = useState(0);
 
 	const teamInputRef = useRef();
 	const teamCreateRef = useRef();
@@ -30,7 +31,7 @@ export default function TeamCard() {
 	async function createTeam() {
 		setNoTeamError("")
 		var reg=/[^a-zA-Z0-9!@#$%^*_|]+/;
-		if(reg.test(teamInputRef.current.value)){              
+		if(reg.test(teamInputRef.current.value)){
 			setNoTeamError("Invalid Characters")
 			return 0;
 		} else if (teamInputRef.current.value.length < 4 || teamInputRef.current.value.length > 24) {
@@ -41,14 +42,16 @@ export default function TeamCard() {
 				"team_name": teamInputRef.current.value,
 				"team_code": generateCode(),
 				"team_owner": pb.authStore.model.id,
-				"member_count": 0
+				"member_count": 1
 			}).then(async (res) => {
-				await pb.collection('users').update(pb.authStore.model.id, {'team': res.id}).then(() => {
-					window.location.reload()
+				await pb.collection('users').update(pb.authStore.model.id, {'team': res.id}).then(async () => {
+					pb.collection("users").authRefresh().then(() => {
+						setUpdatePage(updatePage + 1);
+					})
 				}).catch(() => {
 					setNoTeamError("Error in Joining")
 				});
-			}).catch(() => {
+			}).catch((err) => {
 				setNoTeamError("Error in Creation")
 			});
 		}
@@ -76,7 +79,7 @@ export default function TeamCard() {
 						setNoTeamDecision("Valid Code");
 					});
 				}
-			}).catch(()=>{
+			}).catch((err)=>{
 				setNoTeamError("Unknown Code")
 				return 0;
 			});
@@ -84,25 +87,25 @@ export default function TeamCard() {
 	}
 
 	useEffect(() => {
-		pb.collection('teams').getOne(pb.authStore.model.team, {fields: 'id,team_name,team_owner'}).then((res) => {
-			setTeamName(res.team_name)
-			if(res.team_owner === pb.authStore.model.id) {
-				setIsLeader(true);
-			}
-			pb.collection('users').getList(1, 6, {fields: 'id,name,avatar,collectionId,requested_team'}).then((memberList) => {
-				setMembers(memberList.items.map((user) => {
-					if(user.id === res.team_owner) {
-						user.role = "leader";
-					} else if (user.requested_team === res.id) {
-						user.role = "requested";
-					} else {
-						user.role = "member";
-					}
-					return user;
-				}))
+			pb.collection('teams').getOne(pb.authStore.model.team, {fields: 'id,team_name,team_owner'}).then((res) => {
+				setTeamName(res.team_name)
+				if(res.team_owner === pb.authStore.model.id) {
+					setIsLeader(true);
+				}
+				pb.collection('users').getList(1, 6, {fields: 'id,name,avatar,collectionId,requested_team'}).then((memberList) => {
+					setMembers(memberList.items.map((user) => {
+						if(user.id === res.team_owner) {
+							user.role = "leader";
+						} else if (user.requested_team === res.id) {
+							user.role = "requested";
+						} else {
+							user.role = "member";
+						}
+						return user;
+					}))
+				}).catch(() => {})
 			}).catch(() => {})
-		}).catch(() => {})
-	}, [])
+	}, [updatePage])
 	
 	return (
 	<>
@@ -129,8 +132,10 @@ export default function TeamCard() {
 		<div className={styles.card}>
 			<div className={styles.title}>
 			Team: {teamName}
-				{isLeader ? <></> :
-				<button onClick={selfLeave} className={styles.leaveButton}>Leave Group</button>
+				{isLeader ? 
+				<button onClick={selfLeave} className={styles.actionButton + " " + styles.inviteButton}>Invite to Group</button>
+				:
+				<button onClick={selfLeave} className={styles.actionButton + " " + styles.leaveButton}>Leave Group</button>
 				}
 				<div className={styles.memberCount}>
 					{members.length}/5
