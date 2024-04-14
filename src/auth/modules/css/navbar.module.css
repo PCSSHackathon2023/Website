@@ -1,7 +1,7 @@
 /* Variables */
 .header {
 	--navbar-background-color: rgb(41, 19, 89);
-	--links-hover-color: rgba(0, 0, 0, 0.233);
+	--links-hover-color: rgba(255, 255, 255, 0.233);
 	--links-color: rgb(255, 255, 255);
 	--bg:  #242526;
   --border: 1px solid #474a4d;
@@ -58,6 +58,7 @@
 	animation: 0.1s ease-in-out 0s 1 normal forwards running button-unhover;
 	font-weight: 500;
 	text-align: center;
+	font-family: 'Work Sans', sans-serif;
 }
 
 @keyframes button-hover {
