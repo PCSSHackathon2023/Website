@@ -20,6 +20,7 @@ export default function TeamCard() {
 	const [members, setMembers] = useState([]);
 	const [isLeader, setIsLeader] = useState(false);
 	const [teamName, setTeamName] = useState([]);
+	const [teamCode, setTeamCode] = useState([]);
 	const [noTeamDecision, setNoTeamDecision] = useState('');
 	const [noTeamError, setNoTeamError] = useState('');
 	const [updatePage, setUpdatePage] = useState(0);
@@ -52,7 +53,15 @@ export default function TeamCard() {
 					setNoTeamError("Error in Joining")
 				});
 			}).catch((err) => {
-				setNoTeamError("Error in Creation")
+				try {
+					if(Object.values(err.data.data.team_code).includes("validation_not_unique")) {
+						setNoTeamError("Please Retry")
+					} else {
+						setNoTeamError("Error in Creation")
+					}
+				} catch {
+					setNoTeamError("Error in Creation")
+				}
 			});
 		}
 	}
@@ -77,6 +86,7 @@ export default function TeamCard() {
 					await pb.collection('users').update(pb.authStore.model.id, {'requested_team': res.id}).then(() => {
 						teamInputRef.current.value = "";
 						setNoTeamDecision("Valid Code");
+						setNoTeamError("Request Sent: Team Leader Must Accept")
 					});
 				}
 			}).catch((err)=>{
@@ -87,8 +97,9 @@ export default function TeamCard() {
 	}
 
 	useEffect(() => {
-			pb.collection('teams').getOne(pb.authStore.model.team, {fields: 'id,team_name,team_owner'}).then((res) => {
+			pb.collection('teams').getOne(pb.authStore.model.team, {fields: 'id,team_name,team_owner,team_code'}).then((res) => {
 				setTeamName(res.team_name)
+				setTeamCode(res.team_code)
 				if(res.team_owner === pb.authStore.model.id) {
 					setIsLeader(true);
 				}
@@ -131,14 +142,21 @@ export default function TeamCard() {
 	:
 		<div className={styles.card}>
 			<div className={styles.title}>
-			Team: {teamName}
-				{isLeader ? 
-				<button onClick={selfLeave} className={styles.actionButton + " " + styles.inviteButton}>Invite to Group</button>
+			<div className={styles.teamName}>
+				Team: {teamName}
+			</div>
+			
+			{isLeader ? 
+				<>
+					<div className={styles.inviteCode}>
+						Join Code: {teamCode}
+					</div>
+				</>
 				:
 				<button onClick={selfLeave} className={styles.actionButton + " " + styles.leaveButton}>Leave Group</button>
 				}
 				<div className={styles.memberCount}>
-					{members.length}/5
+					Member Count: {members.length}/5
 				</div>
 			</div>
 			<TeamMembers members={members} isLeader={isLeader} />
