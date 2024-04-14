@@ -22,9 +22,19 @@
 	color: white;
 	padding: 6px 12px 12px 12px;
 	font-size: 20px;
+	height: 32px;
+	display: grid;
+	white-space: nowrap;
+	grid-template-columns: min-content min-content auto;
+	line-height: 28px;
+}
+
+.teamName {
+	margin-right: 8px;
 }
 
 .memberCount {
+	margin-left: auto;
 	float: right;
 }
 
@@ -120,7 +130,6 @@
 	text-align: left;
   padding: 16px;
   text-decoration: none;
-  display: block;
 	border-radius: 16px;
 	border: solid;
 	border-width: 2px;
@@ -161,8 +170,19 @@
 	background-color: rgb(177, 55, 55);
 }
 
-.inviteButton {
+.inviteCode {
+	width: 160px;
+	height: 32px;
+	color: white;
+	font-size: 16px;
+	font-family: 'Work Sans', sans-serif;
+	border: none;
+	margin-left: 24px;
+	border-radius: 8px;
 	background-color: rgb(55, 67, 177);
+	width: 200px;
+	text-align: center;
+	line-height: 32px;
 }
 
 @keyframes button2-hover {
@@ -211,7 +231,6 @@
 .createTeamButton {
 	background-color: rgb(184, 54, 54);
 	margin-right: 24px;
-	z-index: 10;
 }
 
 .joinTeamButton {
@@ -296,4 +315,17 @@
 
 @keyframes input-active-holder {
 	to  {height: 96px}
+}
+
+.editNameButton {
+	background-color: transparent;
+	margin-left: 8px;
+	width: 32px;
+	height: 32px;
+	line-height: 0;
+}
+
+.editNameButton img {
+	vertical-align: middle;
+	transform: translateY(-2px);
 }
