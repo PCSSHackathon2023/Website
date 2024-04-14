@@ -1,24 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { pb } from "../../auth";
 
 import styles from './terms.module.css'
 
 
 function TermsOfService() {
-	const [modal, setModal] = useState(true);
+	const [showModal, setShowModal] = useState(true);
 
 	async function accept() {
-		await pb.collection('users').update(pb.authStore.model.id, {"accept_terms": true,});
-		setModal(true);
+		await pb.collection('users').update(pb.authStore.model.id, {"accept_terms": true});
+		setShowModal(false);
 	}
-
-	useEffect(() => {
-		setModal(pb.authStore.model.accept_terms);
-	}, [])
 	
 	return (
 		<>
-		{(pb.authStore.model.accept_terms || modal) ? <></> :
+			{showModal ? 
 			<div className={styles.main}>
 				<div className={styles.content}>
 					<div className={styles.title}>
@@ -38,13 +34,29 @@ function TermsOfService() {
 							Managers/Organizers reserve the right to take any action as they see fit and to remove any participant who violates these terms of service, 
 							and the ability to contact their school over any inappropriate behaviour.
 						</li>
+						<li>
+							Reporting Inappropriate Behavior: If I witness or become aware of any inappropriate behavior by another participant, 
+							I will report it to the hackathon organizers as soon as possible. 
+							Managers/Organizers reserve the right to take any action as they see fit and to remove any participant who violates these terms of service, 
+							and the ability to contact their school over any inappropriate behaviour.
+						</li>
+						<li>
+							Do not use any personal information when creating a team name
+						</li>
+						<li>
+							A form will be sent to your email address that your parents must sign and bring to the hackathon
+						</li>
+						<li>
+							If your parents request any information about the hackathon please have them contact the organizer at <a href="mailto:p0076296@pdsb.net">p0076296@pdsb.net</a>
+						</li>
 					</ol>
 					<div className={styles.acceptHolder}>
 						<button onClick={accept} className={styles.accept}>Agree</button>
 					</div>
 				</div>
 			</div>
-		}
+			: <></>
+			}
 		</>
 	);
 }
