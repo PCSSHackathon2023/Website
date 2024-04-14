@@ -21,6 +21,24 @@ const data = [
 		`
 	},
 	{
+		question:'Do I need parents\' permission?',
+		answer: 
+		`
+		YES. You must have permission to attend. 
+		Once you sign up a form will be emailed to you for your parents to read and sign. 
+		You must bring a physical copy of the form on the day of the hackathon.
+		`
+	},
+	{
+		question:'Can I join alone, or do I need to be part of a team?',
+		answer: 
+		`
+		If you have friends and you want to be a team, then on the sign-up form put your team members. 
+		Only 5 members per team. If you don't have a team, on the day you have the option of joining a team 
+		or working with a high school student(s).
+		`
+	},
+	{
 		question:'Where will it take place?',
 		answer: 
 		`
@@ -56,6 +74,15 @@ const data = [
 		answer: 
 		`
 		Any student in Grades 6 to 8 can participate in this event.
+		`
+	},
+	{
+		question:'Do I bring food?',
+		answer: 
+		`
+		If you have specific dietary restrictions, then you should bring food. 
+		There will be pizza for everyone and snacks. There are water fountains so bring a water bottle.  
+		There will be no other drink options but your welcome to bring if you want another option than having water.
 		`
 	},
 ]
