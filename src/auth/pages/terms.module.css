@@ -67,9 +67,14 @@
 	display: flex;
 	padding-top: 16px;
 	justify-content: center;
+	text-align: center;
 }
 
 a {
 	color: rgb(137, 137, 255);
 	text-decoration: none;
+}
+
+.acceptLink {
+	line-height: 64px;
 }
