@@ -1,5 +1,6 @@
 import "./Page.css";
 import styles from "./Homepage.module.css";
+import mobile from "./mobileHomepage.module.css"
 import signinstyles from '../css/signin.module.css'
 import Title from "../modules/partyTitle";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
@@ -12,23 +13,43 @@ function Homepage() {
     const scrollRef = useRef();
     const location = useLocation();
 	const [signInStatus, setSignInStatus] = useState(pb.authStore.isValid);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 720)
 
     function scrollToComponent() {
-        if (window.location.hash === '#home') {
-            scrollRef.current.scrollTo(0)
+        if(isMobile) {
+            if (window.location.hash === '#login') {
+                scrollRef.current.scrollIntoView({behavior: "smooth"})
+            }
+        } else {
+            if (window.location.hash === '#home') {
+                scrollRef.current.scrollTo(0)
+            }
+            else if (window.location.hash === '#about') {
+                scrollRef.current.scrollTo(0.9)
+            }
+            else if (window.location.hash === '#sponsors') {
+                scrollRef.current.scrollTo(1.5)
+            }
+            else if (window.location.hash === '#login') {
+                scrollRef.current.scrollTo(2)
+            }
+            window.location.hash = "#";
         }
-        else if (window.location.hash === '#about') {
-            scrollRef.current.scrollTo(0.9)
-        }
-        else if (window.location.hash === '#sponsors') {
-            scrollRef.current.scrollTo(1.5)
-        }
-        else if (window.location.hash === '#login') {
-            scrollRef.current.scrollTo(2)
-        }
-        window.location.hash = "#";
     }
+
+    const handleResize = () => {
+        if (window.innerWidth < 720) {
+            setIsMobile(true)
+        } else {
+            setIsMobile(false)
+        }
+    }
+      
     useEffect( () => {scrollToComponent()}, [location.hash] )
+
+    useEffect(() => {
+        window.addEventListener("resize", handleResize)
+    }, [])
 
     pb.authStore.onChange((token, model) => {
 		try {
@@ -39,6 +60,65 @@ function Homepage() {
 	});
 
     return (
+        <>
+        { isMobile ? 
+        <div>
+            <div className="body">
+                    <div
+                    className={mobile.page1}
+                    style={{
+                        backgroundImage: `url(${require("../../assets/stars_background.png")})`,
+                        backgroundSize: "cover",
+                    }}>
+                        <div className={styles.title + " " + styles.mainTitle}><Title text="KnowMore" /></div>
+                        <div className={styles.mainTitle}><Title text="Hacks 2024" /></div>
+                        <p className={styles.text + " " + mobile.subtitle}>
+                            Welcome to the first annual Hackathon hosted by Port
+                            Credit Secondary School!
+                        </p>
+                    </div>
+                    <div className={mobile.page2}>
+                        <h2 className={mobile.title}>About</h2>
+                        <p className={mobile.aboutText}>
+                            Students in Grades 6-8 in Ontario's elementary
+                            schools are invited to participate in the Hackathon,
+                            which will provide them with an enjoyable
+                            opportunity to test their knowledge and compete with
+                            one another. It will be housed in Port Credit
+                            Secondary School and run by the Peel District School
+                            Board. The event will take place on May 25th 2024. 
+                            Students will have a fantastic opportunity to
+                            experience a hackathon, and learn more about the Sci-Tech program.
+                        </p>
+                    </div>
+                    <div
+                    className={mobile.page3}
+                    style={{
+                        backgroundImage: `url(${require("../../assets/stars-nature_background.png")})`,
+                        backgroundSize: "cover",
+                    }}
+                    >
+                        <h2 style={{paddingTop: "50px"}} className={mobile.title}>Sponsors</h2>
+                        <div className={styles.sponsorSpots}>
+                            
+                        </div>
+                        <div className={mobile.signinButton} ref={scrollRef}>
+                        {signInStatus ? 
+                            <div className={signinstyles.login}>
+                                <a href="/user/dashboard" className={signinstyles.signin_button}>
+                                    <p className={signinstyles.get_started_text}>
+                                    Get Started
+                                    </p>
+                                </a>
+                            </div>
+                        : 
+                            <Signin />
+                        }
+                        </div>
+                    </div>
+            </div>
+        </div>
+        :
         <div>
             <div className="body">
                 <Parallax ref={scrollRef} pages={3}>
@@ -52,7 +132,7 @@ function Homepage() {
                             backgroundSize: "cover",
                         }}
                     >
-                        <div className={styles.title + " " + styles.mainTitle}><Title text="KnowMore Hacks 2023" /></div>
+                        <div className={styles.title + " " + styles.mainTitle}><Title text="KnowMore Hacks 2024" /></div>
                         <p className={styles.text}>
                             Welcome to the first annual Hackathon hosted by Port
                             Credit Secondary School!
@@ -107,6 +187,8 @@ function Homepage() {
                 </Parallax>
             </div>
         </div>
+        }
+        </>
     );
 }
 

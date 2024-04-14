@@ -156,7 +156,7 @@ export default function TeamCard() {
 				<button onClick={selfLeave} className={styles.actionButton + " " + styles.leaveButton}>Leave Group</button>
 				}
 				<div className={styles.memberCount}>
-					Member Count: {members.length}/5
+					Members: {members.length}/5
 				</div>
 			</div>
 			<TeamMembers members={members} isLeader={isLeader} />
