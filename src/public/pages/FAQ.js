@@ -5,60 +5,57 @@ import styles from "./FAQ.module.css";
 
 const data = [
 	{
-		question:'Lorem ipsum?',
-		answer: 
-		'Answer 1'
-	},
-	{
-		question:'Lorem ipsum?',
-		answer: 
-		'Answer 2'
-	},
-	{
-		question:'Lorem ipsum?',
-		answer: 
-		'Answer 3'
-	},
-	{
-		question:'Lorem ipsum?',
-		answer: 
-		'Answer 4'
-	},
-	{
-		question:'Lorem ipsum?',
-		answer: 
-		'Answer 5'
-	},
-	{
-		question:'Lorem ipsum?',
-		answer: 
-		'Answer 6'
-	},
-	{
-		question:'Lorem ipsum?',
-		answer: 
-		'Answer 7'
-	},
-	{
-		question:'Lorem ipsum?',
-		answer: 
-		'Answer 8'
-	},
-	{
-		question:'Lorem ipsum?',
-		answer: 
-		'Answer 9'
-	},
-	{
-		question:'Lorem ipsum?',
-		answer: 
-		'Answer 10'
-	},
-	{
-		question:'Lorem ipsum?',
+		question:'What is a hackathon?',
 		answer: 
 		`
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dictum, ex vitae aliquam rutrum, nibh magna accumsan nulla, sed varius diam orci fringilla arcu. Duis ut iaculis est, quis accumsan dolor. Quisque semper tellus congue viverra imperdiet. Proin congue tincidunt vehicula. Nullam mattis sodales imperdiet. Ut cursus tortor vitae porta eleifend. Vivamus tristique molestie nunc nec dignissim. Duis non ante ultrices, rhoncus purus in, iaculis mi. Suspendisse ultricies urna ut suscipit egestas.
+		A hackathon is an event where participants collaborate to design, build, and present technology solutions 
+		within a designated time limit. This provides a platform for innovators to showcase their skills, 
+		connect with other developers, designers, and entrepreneurs in an exciting and collaborative setting.
+		`
+	},
+	{
+		question:'How much does it cost to attend?',
+		answer: 
+		`
+		This event is absolutely free to students, there is no cost to attend and participate!
+		`
+	},
+	{
+		question:'Where will it take place?',
+		answer: 
+		`
+		The Hackathon will take place at Port Credit Secondary School, from 9 AM to 8 PM. 
+		Students will travel between different areas of the school for workshops, presentations, and breaks.
+		`
+	},
+	{
+		question:'Is prior experience necessary?',
+		answer: 
+		`
+		Prior experience is not at all necessary, 
+		whether you are a seasoned coder or just starting out, 
+		our hands-on workshops will teach students everything they need to know about how to create the perfect project!
+		`
+	},
+	{
+		question:'What kind of workshops and activities will there be?',
+		answer: 
+		`
+		The workshops provided will include topics relating to AI, Hardware, Website Development, and Python.
+		`
+	},
+	{
+		question:'How many people can be on a team?',
+		answer: 
+		`
+		Contestants may create teams of up to 5 people.
+		`
+	},
+	{
+		question:'Who can participate?',
+		answer: 
+		`
+		Any student in Grades 6 to 8 can participate in this event.
 		`
 	},
 ]
