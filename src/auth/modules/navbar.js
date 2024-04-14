@@ -50,6 +50,7 @@ export default function DashboardNavbar() {
 			</Link>
 			<div className={header.button}>
 				<Link to="/faq" className={header.links}>FAQ</Link>
+				<Link to="/user/tos" className={header.links}>Terms of Service</Link>
 				
 				{ pb.authStore.isValid ?
 				<button className={header.links + " " + header.profile_links}>
