@@ -70,8 +70,8 @@ function Homepage() {
                         backgroundImage: `url(${require("../../assets/stars_background.png")})`,
                         backgroundSize: "cover",
                     }}>
-                        <div className={styles.title + " " + styles.mainTitle}><Title text="KnowMore" /></div>
-                        <div className={styles.mainTitle}><Title text="Hacks 2024" /></div>
+                        <div style={{"marginTop":"30vh"}} className={mobile.title + " " + mobile.mainTitle}><Title text="KnowMore" /></div>
+                        <div className={mobile.title + " " + mobile.mainTitle}><Title text="Hacks 2024" /></div>
                         <p className={styles.text + " " + mobile.subtitle}>
                             Welcome to the first annual Hackathon hosted by Port
                             Credit Secondary School!

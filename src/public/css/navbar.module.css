@@ -109,3 +109,9 @@
 	opacity: 1 !important;
 	display: block !important;
 }
+
+@media only screen and (max-width: 720px) {
+	.links {
+		font-size: 4vw;
+	}
+}

@@ -9,7 +9,7 @@
     --blue: rgb(51, 51, 240);
     opacity: 0;
     text-align: center;
-    font-size: 64px;
+    /* font-size: 64px; */
     font-weight: bold;
     animation-name: party-effect;
     animation-duration: 700ms;

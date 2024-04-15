@@ -14,14 +14,19 @@
 
 .aboutText {
 	color: white;
-	font-size: 1.5em;
+	font-size: 1.2em;
 	z-index: 0;
 	margin: 0 48px;
 }
 
+.mainTitle {
+	font-family: 'Work Sans', sans-serif !important;
+	margin-bottom: 48px;
+}
+
 .title {
 	color: white;
-	font-size: 5em;
+	font-size: 15vw;
 	text-align: center;
 	opacity: 0;
 	animation-duration: 0.75s;

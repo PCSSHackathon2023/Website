@@ -23,16 +23,20 @@ export default function Navbar() {
 		}
   };
 
-	useEffect(() => {
-		setImage(getUserImage());
-		setUsername(getUser().name);
-		setUser(getUser());
-
+	const handleResize = () => {
 		if (window.innerWidth < 720) {
 				setIsMobile(true)
 		} else {
 				setIsMobile(false)
 		}
+	}
+
+	useEffect(() => {
+		setImage(getUserImage());
+		setUsername(getUser().name);
+		setUser(getUser());
+
+		window.addEventListener("resize", handleResize)
 
 		document.addEventListener('mousedown', handleOutsideClick);
     return () => {
