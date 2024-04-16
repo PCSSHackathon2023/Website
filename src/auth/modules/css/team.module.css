@@ -210,7 +210,7 @@
 
 .buttonHolder {
 	width: 100%;
-	margin-top: 5%;
+	margin-top: 24px;
 	display: flex;
 	justify-content: center;
 }
@@ -328,4 +328,24 @@
 .editNameButton img {
 	vertical-align: middle;
 	transform: translateY(-2px);
+}
+
+@media only screen and (max-width: 720px) {
+  .teamInputHolder {
+		margin-bottom: 96px;
+	}
+
+	.title {
+		grid-template-columns: min-content auto min-content;
+		grid-template-rows: min-content min-content;
+		grid-gap: 8px;
+		height: auto;
+	}
+
+	.leaveButton, .inviteCode {
+		grid-column: 1 / 1;
+		grid-row: 2 / 2;
+		margin-left: 0;
+	}
+
 }
