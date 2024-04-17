@@ -348,4 +348,16 @@
 		margin-left: 0;
 	}
 
+	.name {
+		width: 100%;
+	}
+
+	.member {
+		grid-template-columns: 48px 50% auto;
+	}
+
+	.dropdownContent {
+		right: 14px;
+	}
+
 }
