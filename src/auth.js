@@ -57,7 +57,12 @@ export async function downloadImageFromUrl(url) {
 }
 
 export async function googleAuth() {
-	await pb.collection('users').authWithOAuth2({provider: 'google'}).then((authData) => {
+	await pb.collection('users').authWithOAuth2({
+		provider: 'google',
+		urlCallback: (url) => {
+			window.open(url, "_blank", "");
+		}
+	}).then((authData) => {
 		if(authData.meta.isNew) {
 			downloadImageFromUrl(authData.meta.avatarUrl).then(async (image) => {
 				const userData = new FormData();
