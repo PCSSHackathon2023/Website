@@ -5,6 +5,7 @@ import styles from './dashboard.module.css'
 import TeamCard from "../modules/teamcard";
 import TimeLeft from "../modules/timeleft";
 import TermsOfService from './terms'
+import Category from "../modules/category";
 
 function Dashboard() {
 	const [signInStatus, setSignInStatus] = useState(false);
@@ -29,6 +30,7 @@ function Dashboard() {
 			}
 			<h1 className={styles.name}>Welcome {pb.authStore.model.name.split(' ')[0]}</h1>
 			<TimeLeft />
+			<Category />
 			<TeamCard />
 		</div>
 	);
