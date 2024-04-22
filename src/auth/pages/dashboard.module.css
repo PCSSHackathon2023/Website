@@ -6,7 +6,7 @@ body {
 	padding: 16px;
 	padding-top: 150px;
 	display: grid;
-	grid-template-rows: repeat(4, auto);
+	grid-template-rows: repeat(13, 64px);
 	grid-template-columns: 100%;
 	row-gap: 25px;
 	column-gap: 25px;
@@ -23,7 +23,7 @@ body {
 
 @media only screen and (min-width: 1000px) {
 	.main {
-		grid-template-rows: repeat(2, auto);
+		grid-template-rows: repeat(10, 64px);
 		grid-template-columns: 66% 33% auto;
 	}
 }

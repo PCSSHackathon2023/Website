@@ -6,6 +6,7 @@ import TeamCard from "../modules/teamcard";
 import TimeLeft from "../modules/timeleft";
 import TermsOfService from './terms'
 import Category from "../modules/category";
+import AdminPosts from "../modules/adminpostcards";
 
 function Dashboard() {
 	const [signInStatus, setSignInStatus] = useState(false);
@@ -32,6 +33,7 @@ function Dashboard() {
 			<TimeLeft />
 			<Category />
 			<TeamCard />
+			<AdminPosts />
 		</div>
 	);
 }

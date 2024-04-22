@@ -1,0 +1,73 @@
+.card {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	grid-area: 3 / 2 / span 4 / span 1;
+	width: 100%;
+	min-width: 450px;
+	background-color: rgb(20, 26, 36);
+	border-radius: 16px;
+	border-color: rgba(255, 255, 255, 0.5);
+	border-style: solid;
+	border-width: 2px;
+	color: white;
+	padding: 12px;
+	justify-content: center;
+	align-items: middle;
+	overflow-y: auto;
+}
+
+.title {
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 500; 
+	font-size: 32px;
+	padding: 0 0 12px 12px;
+	border-color: rgba(255, 255, 255, 0.5);
+	border-style: solid;
+	border-width: 0 0 2px 0;
+}
+
+.postHolder {
+	padding: 16px;
+	margin: 8px 0;
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 16px;
+	display: grid;
+	grid-template-columns: 75% auto;
+}
+
+.post {
+	grid-area: 1 / 1 / 1 / 1;
+	width: 100%;
+	max-width: 100%;
+	white-space: initial;
+	word-wrap: break-word;
+}
+
+.postDate {
+	grid-area: 1 / 2 / 1 / 2;
+	margin-left: auto;
+	padding-bottom: 24px;
+}
+
+.postTime {
+	grid-area: 1 / 2 / 1 / 2;
+	margin-left: auto;
+	padding-top: 24px;
+}
+
+@media only screen and (max-width: 1000px) {
+	.card {
+		grid-area: 9 / 1 / span 4 / 1;
+	}
+}
+
+@media only screen and (max-width: 720px) {
+	.card {
+		min-width: 0px;
+	}
+	
+	.category {
+		font-size: 4vw;
+	}
+}
