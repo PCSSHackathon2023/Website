@@ -9,7 +9,7 @@ export default function AdminPosts() {
 		pb.collection('admin_posts').getFullList({
 			sort: '-created',
 		}).then((res) => {
-			var test = res.map((post) => {
+			setPosts(res.map((post) => {
 				const created = new Date(post.created)
 				return (
 					<div className={styles.postHolder}>
@@ -21,9 +21,7 @@ export default function AdminPosts() {
 						})}</div>
 					</div>
 				)
-			})
-			console.log(test);
-			setPosts(test);
+			}))
 		}).catch(() => {})
 	}, [])
 
