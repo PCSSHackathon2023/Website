@@ -38,9 +38,6 @@
 }
 
 .holder {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 	width: 100%;
 	max-height: 87%;
 	overflow-y: auto;
@@ -81,19 +78,12 @@
 	margin-right: 8px;
 	background-color: #484a4d;
 	cursor: pointer;
-	animation: 0.2s ease-in-out 0s 1 normal forwards running button-unhover;
-}
-
-@keyframes button-hover {
-	to  {background-color: #484a4d90}
-}
-
-@keyframes button-unhover {
-	from {background-color: #484a4d90}  
+	transition: background-color 200ms;
 }
 
 .requestButton:hover, .requestButton:active {
-	animation: 0.2s ease-in-out 0s 1 normal forwards running button-hover;
+	background-color: #484a4d90;
+	transition: background-color 200ms;
 }
 
 .optionsHolder {
@@ -139,6 +129,7 @@
 	cursor: pointer;
 	display: flex;
 	align-items: center;
+	transition: background-color 200ms;
 }
 
 .dropdownContent img {
@@ -146,7 +137,8 @@
 }
 
 .dropdownContent button:hover {
-	background-color: #a7a7a7;
+	background-color: rgb(211, 211, 211);
+	transition: background-color 200ms;
 }
 
 .show {
@@ -162,7 +154,8 @@
 	border: none;
 	margin-left: 24px;
 	border-radius: 8px;
-	animation: 0.2s ease-in-out 0s 1 normal forwards running button2-unhover;
+	opacity: 1;
+	transition: opacity 200ms;
 }
 
 .leaveButton {
@@ -182,18 +175,12 @@
 	width: 200px;
 	text-align: center;
 	line-height: 32px;
-}
-
-@keyframes button2-hover {
-	to  {opacity: 0.8}
-}
-
-@keyframes button2-unhover {
-	from {opacity: 0.8}  
+	
 }
 
 .actionButton:hover, .actionButton:active {
-	animation: 0.2s ease-in-out 0s 1 normal forwards running button2-hover;
+	opacity: 0.8;
+	transition: opacity 200ms;
 }
 
 .noTeam {
@@ -223,8 +210,8 @@
 	font-size: 16px;
 	font-family: 'Work Sans', sans-serif;
 	cursor: pointer;
-	animation: 0.2s ease-in-out 0s 1 normal forwards running button2-unhover;
-	transition: opacity 0.5s;
+	opacity: 1;
+	transition: opacity 200ms;
 }
 
 .createTeamButton {
@@ -238,7 +225,8 @@
 }
 
 .teamButton:hover, .teamButton:active {
-	animation: 0.2s ease-in-out 0s 1 normal forwards running button2-hover;
+	opacity: 0.8;
+	transition: opacity 200ms;
 }
 
 .teamButton:disabled {

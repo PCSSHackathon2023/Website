@@ -55,21 +55,13 @@
 	margin: 6px;
 	padding: 12px 18px 12px 18px;
 	text-decoration: none;
-	animation: 0.1s ease-in-out 0s 1 normal forwards running button-unhover;
 	font-weight: 500;
 	text-align: center;
-}
-
-@keyframes button-hover {
-	to  {background-color: var(--links-hover-color);}
-}
-
-@keyframes button-unhover {
-	from {background-color: var(--links-hover-color)}  
+	transition: background-color 100ms;
 }
 
 .links:hover, .links:active {
-	animation: 0.1s ease-in-out 0s 1 normal forwards running button-hover;
+	background-color: var(--links-hover-color);
 }
 
 .profile_links {
